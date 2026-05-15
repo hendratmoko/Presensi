@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Presensi SMKN 1 Sanden</title>
+<title>
+Presensi SMKN 1 Sanden
+</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,6 +26,7 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
+
 background:
 linear-gradient(
 180deg,
@@ -29,11 +34,18 @@ linear-gradient(
 #1565c0,
 #42a5f5
 );
+
 min-height:100vh;
+
 color:white;
+
 overflow-x:hidden;
-padding-bottom:100px;
+
+padding-bottom:120px;
+
 }
+
+/* HEADER */
 
 .header{
 position:relative;
@@ -48,40 +60,128 @@ object-fit:cover;
 }
 
 .logo-box{
+
 position:absolute;
+
 top:20px;
 left:15px;
+
 display:flex;
 align-items:center;
 gap:10px;
+
 }
 
 .logo{
+
 width:55px;
 height:55px;
+
 border-radius:50%;
+
 background:white;
+
 padding:5px;
+
 }
 
 .logo-box h1{
+
 font-size:18px;
+
 text-shadow:
 0 3px 10px rgba(0,0,0,.5);
+
 }
+
+/* CONTAINER */
 
 .container{
 padding:15px;
 }
 
+/* NAVIGATION */
+
+.top-menu{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:10px;
+
+margin-bottom:20px;
+
+}
+
+.nav-btn{
+
+flex:1;
+
+border:none;
+
+padding:12px 5px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+background:
+rgba(255,255,255,.15);
+
+color:white;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:5px;
+
+transition:.4s;
+
+font-size:12px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.nav-btn i{
+font-size:18px;
+}
+
+.active-nav{
+
+background:
+linear-gradient(
+45deg,
+#00c6ff,
+#0072ff
+);
+
+transform:
+translateY(-3px)
+scale(1.03);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.3);
+
+}
+
+/* CARD */
+
 .card{
+
 background:
 rgba(255,255,255,.12);
 
 border:
 1px solid rgba(255,255,255,.2);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(14px);
 
 border-radius:25px;
 
@@ -92,37 +192,49 @@ margin-bottom:20px;
 box-shadow:
 0 10px 30px rgba(0,0,0,.25),
 inset 0 1px 1px rgba(255,255,255,.2);
+
 }
 
-.menu{
-display:flex;
-gap:10px;
-margin-bottom:15px;
-}
-
-.menu button{
-flex:1;
-}
+/* INPUT */
 
 input,select{
+
 width:100%;
+
 padding:15px;
+
 border:none;
+
 border-radius:15px;
+
 margin-top:10px;
+
 font-size:16px;
+
 outline:none;
+
 }
 
+/* BUTTON */
+
 .main-btn{
+
 width:100%;
+
 padding:15px;
+
 border:none;
+
 border-radius:18px;
+
 margin-top:15px;
+
 font-size:16px;
+
 font-weight:bold;
+
 color:white;
+
 cursor:pointer;
 
 background:
@@ -136,17 +248,25 @@ transition:.4s;
 
 box-shadow:
 0 8px 25px rgba(0,0,0,.3);
+
 }
 
 .main-btn:hover{
+
 transform:
 translateY(-3px)
 scale(1.01);
+
 }
 
+/* STUDENT */
+
 .student{
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
 background:
@@ -157,7 +277,10 @@ padding:12px;
 border-radius:18px;
 
 margin-top:10px;
+
 }
+
+/* STATUS */
 
 .status-group{
 display:flex;
@@ -165,35 +288,76 @@ gap:7px;
 }
 
 .status-btn{
-width:40px;
-height:40px;
+
+width:42px;
+height:42px;
+
 border:none;
+
 border-radius:50%;
-font-weight:bold;
+
+background:
+linear-gradient(
+45deg,
+#2196f3,
+#1565c0
+);
+
 color:white;
+
+font-weight:bold;
+
 cursor:pointer;
+
 transition:.3s;
+
+position:relative;
+
+overflow:hidden;
+
 }
 
-.status-btn:hover{
-transform:scale(1.15);
+.status-btn::before{
+
+content:'';
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background:
+rgba(255,255,255,.25);
+
+top:-100%;
+left:0;
+
+transition:.4s;
+
 }
 
-.s{
-background:#f39c12;
+.status-btn:hover::before{
+top:0;
 }
 
-.i{
-background:#3498db;
+.status-active{
+
+background:
+linear-gradient(
+45deg,
+#00e676,
+#00c853
+)!important;
+
+transform:
+scale(1.15);
+
+box-shadow:
+0 0 20px rgba(0,255,100,.6);
+
 }
 
-.a{
-background:#e74c3c;
-}
-
-.d{
-background:#2ecc71;
-}
+/* SECTION */
 
 .section{
 display:none;
@@ -203,48 +367,162 @@ display:none;
 display:block;
 }
 
+/* WA */
+
 .floating-wa{
+
 position:fixed;
+
 right:20px;
 bottom:20px;
+
 width:65px;
 height:65px;
+
 border-radius:50%;
+
 background:#25D366;
+
 display:flex;
+
 align-items:center;
 justify-content:center;
+
 font-size:30px;
+
 color:white;
+
 text-decoration:none;
+
 box-shadow:
 0 5px 25px rgba(0,0,0,.4);
+
 z-index:999;
+
+}
+
+.wa-group{
+
+position:fixed;
+
+left:20px;
+bottom:20px;
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:30px;
+
+color:white;
+
+text-decoration:none;
+
+box-shadow:
+0 5px 25px rgba(0,0,0,.4);
+
+z-index:999;
+
+}
+
+/* NOTIF */
+
+.notif{
+
+position:fixed;
+
+top:15px;
+left:50%;
+
+transform:
+translateX(-50%);
+
+background:
+linear-gradient(
+45deg,
+#00c853,
+#64dd17
+);
+
+padding:15px 20px;
+
+border-radius:15px;
+
+z-index:9999;
+
+font-weight:bold;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.3);
+
+animation:
+slideNotif .5s ease;
+
+}
+
+@keyframes slideNotif{
+
+from{
+
+opacity:0;
+
+transform:
+translateX(-50%)
+translateY(-20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateX(-50%)
+translateY(0);
+
+}
+
+}
+
+/* PREVIEW */
+
+.preview-box{
+
+background:
+rgba(255,255,255,.12);
+
+padding:15px;
+
+border-radius:18px;
+
+margin-top:20px;
+
+line-height:1.8;
+
 }
 
 .small{
+
 font-size:13px;
+
 opacity:.8;
+
 margin-top:5px;
+
 }
 
-canvas{
-background:white;
-border-radius:15px;
-padding:10px;
-}
-
-.copy-btn{
-padding:10px;
-border:none;
-border-radius:10px;
-background:#00c6ff;
-color:white;
-margin-top:10px;
-cursor:pointer;
-}
+/* BIRTHDAY */
 
 .birthday{
+
 background:
 linear-gradient(
 45deg,
@@ -259,6 +537,7 @@ border-radius:20px;
 margin-bottom:15px;
 
 animation:pulse 1.5s infinite;
+
 }
 
 @keyframes pulse{
@@ -277,10 +556,45 @@ transform:scale(1);
 
 }
 
+/* CANVAS */
+
+canvas{
+
+background:white;
+
+border-radius:15px;
+
+padding:10px;
+
+}
+
+/* COPY */
+
+.copy-btn{
+
+padding:10px;
+
+border:none;
+
+border-radius:10px;
+
+background:#00c6ff;
+
+color:white;
+
+margin-top:10px;
+
+cursor:pointer;
+
+}
+
 </style>
+
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <div class="header">
 
@@ -301,21 +615,35 @@ SMK NEGERI 1 SANDEN
 
 <div class="container">
 
-<div class="menu">
+<!-- MENU -->
 
-<button class="main-btn"
-onclick="showPage('presensi')">
-Presensi
+<div class="top-menu">
+
+<button class="nav-btn active-nav"
+onclick="showPage('presensi',this)">
+
+<i class="fa-solid fa-clipboard-check"></i>
+
+<span>Presensi</span>
+
 </button>
 
-<button class="main-btn"
-onclick="showPage('admin')">
-Admin
+<button class="nav-btn"
+onclick="showPage('admin',this)">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<span>Admin</span>
+
 </button>
 
-<button class="main-btn"
-onclick="showPage('data')">
-Data
+<button class="nav-btn"
+onclick="showPage('data',this)">
+
+<i class="fa-solid fa-database"></i>
+
+<span>Data</span>
+
 </button>
 
 </div>
@@ -329,7 +657,9 @@ class="section active">
 
 <div class="card">
 
-<h2>Presensi Harian</h2>
+<h2>
+Presensi Harian
+</h2>
 
 <select id="guru"></select>
 
@@ -338,9 +668,11 @@ id="pin"
 placeholder="PIN tetap guru">
 
 <div class="small">
+
 Buat PIN 4 digit huruf/angka
 yang selalu dipakai dan
 tidak boleh berubah
+
 </div>
 
 <select id="kelas"></select>
@@ -355,6 +687,22 @@ S = Sakit<br>
 I = Izin<br>
 A = Alpha<br>
 D = Dispensasi
+
+</div>
+
+<!-- PREVIEW -->
+
+<div class="preview-box">
+
+<h3>
+Preview Presensi
+</h3>
+
+<div id="previewPresensi">
+
+Belum ada data presensi
+
+</div>
 
 </div>
 
@@ -383,7 +731,9 @@ class="section">
 
 <div class="card">
 
-<h2>Login Admin</h2>
+<h2>
+Login Admin
+</h2>
 
 <input id="username"
 placeholder="Username">
@@ -419,6 +769,13 @@ Copy Laporan
 
 </button>
 
+<button class="copy-btn"
+onclick="window.print()">
+
+Print PDF
+
+</button>
+
 </div>
 
 <div class="card">
@@ -440,7 +797,9 @@ Copy Data
 
 <div class="card">
 
-<h3>Grafik Presensi</h3>
+<h3>
+Grafik Presensi
+</h3>
 
 <canvas id="grafik"></canvas>
 
@@ -457,7 +816,9 @@ class="section">
 
 <div class="card">
 
-<h2>Tambah Siswa</h2>
+<h2>
+Tambah Siswa
+</h2>
 
 <input id="no"
 placeholder="Nomor">
@@ -485,7 +846,9 @@ Simpan Siswa
 
 <div class="card">
 
-<h2>Tambah Guru</h2>
+<h2>
+Tambah Guru
+</h2>
 
 <input id="guruNama"
 placeholder="Nama Guru">
@@ -518,8 +881,19 @@ Simpan Guru
 
 </div>
 
+<!-- WA ADMIN -->
+
 <a class="floating-wa"
 href="https://wa.me/628121543986">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<!-- WA GROUP -->
+
+<a class="wa-group"
+href="https://wa.me/?text=Presensi%20Kehadiran%20SMKN%201%20Sanden">
 
 <i class="fab fa-whatsapp"></i>
 
@@ -528,9 +902,6 @@ href="https://wa.me/628121543986">
 <script>
 
 const CONFIG = {
-
-WEB_APP_URL:
-"PASTE_WEB_APP_URL",
 
 ADMIN:{
 username:"Miming",
@@ -593,7 +964,9 @@ jk:"L"
 
 let presensi=[];
 
-function showPage(id){
+/* PAGE */
+
+function showPage(id,el){
 
 document
 .querySelectorAll('.section')
@@ -607,7 +980,19 @@ document
 .getElementById(id)
 .classList.add('active');
 
+document
+.querySelectorAll('.nav-btn')
+.forEach(btn=>{
+
+btn.classList.remove('active-nav');
+
+});
+
+el.classList.add('active-nav');
+
 }
+
+/* LOAD GURU */
 
 function loadGuru(){
 
@@ -628,6 +1013,8 @@ document
 .innerHTML = html;
 
 }
+
+/* LOAD KELAS */
 
 function loadKelas(){
 
@@ -666,6 +1053,8 @@ showStudents
 
 }
 
+/* SHOW STUDENT */
+
 function showStudents(){
 
 const kelas =
@@ -695,32 +1084,32 @@ ${s.no}. ${s.nama}
 <div class="status-group">
 
 <button
-class="status-btn s"
-onclick="setStatus(${index},'S')">
+class="status-btn"
+onclick="setStatus(event,${index},'S')">
 
 S
 
 </button>
 
 <button
-class="status-btn i"
-onclick="setStatus(${index},'I')">
+class="status-btn"
+onclick="setStatus(event,${index},'I')">
 
 I
 
 </button>
 
 <button
-class="status-btn a"
-onclick="setStatus(${index},'A')">
+class="status-btn"
+onclick="setStatus(event,${index},'A')">
 
 A
 
 </button>
 
 <button
-class="status-btn d"
-onclick="setStatus(${index},'D')">
+class="status-btn"
+onclick="setStatus(event,${index},'D')">
 
 D
 
@@ -742,7 +1131,9 @@ document
 
 }
 
-function setStatus(index,status){
+/* SET STATUS */
+
+function setStatus(event,index,status){
 
 const kelas =
 document
@@ -778,7 +1169,56 @@ status
 
 }
 
+const parent =
+event.target.parentElement;
+
+parent
+.querySelectorAll('.status-btn')
+.forEach(btn=>{
+
+btn.classList.remove('status-active');
+
+});
+
+event.target
+.classList.add('status-active');
+
+updatePreview();
+
 }
+
+/* PREVIEW */
+
+function updatePreview(){
+
+let html='';
+
+if(presensi.length==0){
+
+html='Belum ada data';
+
+}else{
+
+presensi.forEach((p,i)=>{
+
+html += `
+${i+1}. ${p.nama}
+- ${p.status}<br>
+`;
+
+});
+
+}
+
+document
+.getElementById(
+'previewPresensi'
+)
+.innerHTML = html;
+
+}
+
+/* KIRIM */
 
 function kirimPresensi(){
 
@@ -792,24 +1232,28 @@ laporan +=
 
 });
 
-alert(
-"Presensi berhasil dikirim"
-);
-
 document
 .getElementById('laporan')
 .innerHTML =
 laporan.replace(/\n/g,'<br>');
 
+showNotif(
+"Presensi berhasil dikirim"
+);
+
 }
+
+/* REVISI */
 
 function revisiPresensi(){
 
-alert(
+showNotif(
 "Revisi berhasil dikirim"
 );
 
 }
+
+/* LOGIN */
 
 function loginAdmin(){
 
@@ -841,15 +1285,21 @@ loadGrafik();
 
 loadBelum();
 
+showNotif(
+"Login admin berhasil"
+);
+
 }else{
 
-alert(
+showNotif(
 "Login gagal"
 );
 
 }
 
 }
+
+/* BELUM */
 
 function loadBelum(){
 
@@ -865,6 +1315,8 @@ document
 
 }
 
+/* COPY */
+
 function copyLaporan(){
 
 navigator.clipboard.writeText(
@@ -875,7 +1327,7 @@ document
 
 );
 
-alert(
+showNotif(
 "Laporan dicopy"
 );
 
@@ -891,11 +1343,13 @@ document
 
 );
 
-alert(
+showNotif(
 "Data dicopy"
 );
 
 }
+
+/* GRAFIK */
 
 function loadGrafik(){
 
@@ -935,6 +1389,8 @@ data:[
 
 }
 
+/* SIMPAN SISWA */
+
 function simpanSiswa(){
 
 siswa.push({
@@ -966,13 +1422,15 @@ document
 
 });
 
-alert(
+showNotif(
 "Siswa berhasil ditambahkan"
 );
 
 loadKelas();
 
 }
+
+/* SIMPAN GURU */
 
 function simpanGuru(){
 
@@ -995,13 +1453,15 @@ document
 
 });
 
-alert(
+showNotif(
 "Guru berhasil ditambahkan"
 );
 
 loadGuru();
 
 }
+
+/* ULANG TAHUN */
 
 function cekUltah(){
 
@@ -1049,6 +1509,29 @@ document
 .innerHTML = html;
 
 }
+
+/* NOTIF */
+
+function showNotif(text){
+
+const div =
+document.createElement('div');
+
+div.className='notif';
+
+div.innerHTML=text;
+
+document.body.appendChild(div);
+
+setTimeout(()=>{
+
+div.remove();
+
+},3000);
+
+}
+
+/* INIT */
 
 loadGuru();
 
