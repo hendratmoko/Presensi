@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Presensi SMKN 1 Sanden</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<div class="header">
+<img src="assets/wave.png" class="wave">
+
+<div class="logo-box">
+<img src="assets/logo.png">
+<h1>SMK NEGERI 1 SANDEN</h1>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Presensi Harian</h2>
+
+<select id="guru"></select>
+
+<input type="password"
+id="pin"
+placeholder="PIN tetap guru">
+
+<select id="kelas"></select>
+
+<div id="birthday"></div>
+
+<div id="siswaContainer"></div>
+
+<div style="margin-top:15px;">
+<b>Keterangan:</b><br>
+S = Sakit<br>
+I = Izin<br>
+A = Alpha<br>
+D = Dispensasi
+</div>
+
+<button class="main-btn"
+onclick="kirimPresensi()">
+Kirim Presensi
+</button>
+
+<button class="main-btn"
+onclick="revisiPresensi()">
+Revisi Presensi
+</button>
+
+</div>
+</div>
+
+<a class="floating-wa"
+href="https://wa.me/628121543986">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
