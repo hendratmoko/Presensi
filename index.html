@@ -876,8 +876,12 @@ ADMIN:{
 username:"Miming",
 password:"admin"
 }
-
 };
+  
+/* =========================
+DATA ARRAY
+========================= */
+
 
 /* DATA */
 let siswa = [];
@@ -894,6 +898,63 @@ let guru = [
 {nama:"Kawit",lahir:"1969-08-30",jk:"L"}
 ];
 */
+  
+async function loadData(){
+
+try{
+
+const response =
+await fetch(WEB_APP_URL);
+
+const result =
+await response.json();
+
+siswa = result.siswa;
+guru = result.guru;
+
+loadGuru();
+loadKelas();
+cekUltah();
+
+showNotif(
+"Data berhasil dimuat"
+);
+
+}catch(err){
+
+console.log(err);
+
+showNotif(
+"Gagal mengambil data"
+);
+
+}
+
+}
+
+/* =========================
+LOAD GURU
+========================= */
+
+function loadGuru(){
+
+let html='';
+
+guru.forEach(g=>{
+
+html += `
+<option>
+${g.nama}
+</option>
+`;
+
+});
+
+document
+.getElementById('guru')
+.innerHTML = html;
+
+  }
   
 let presensi=[];
 
@@ -1619,13 +1680,12 @@ div.remove();
 }
 
 /* INIT */
-
+loadData();
+  /*
 loadGuru();
-
 loadKelas();
-
 cekUltah();
-
+*/
 </script>
 
 </body>
