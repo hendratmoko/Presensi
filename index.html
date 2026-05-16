@@ -3,13 +3,9 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-Presensi SMKN 1 Sanden
-</title>
+<title>Presensi SMKN 1 Sanden</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -26,7 +22,6 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-
 background:
 linear-gradient(
 180deg,
@@ -36,13 +31,9 @@ linear-gradient(
 );
 
 min-height:100vh;
-
 color:white;
-
 overflow-x:hidden;
-
 padding-bottom:120px;
-
 }
 
 /* HEADER */
@@ -60,38 +51,27 @@ object-fit:cover;
 }
 
 .logo-box{
-
 position:absolute;
-
 top:20px;
 left:15px;
-
 display:flex;
 align-items:center;
 gap:10px;
-
 }
 
 .logo{
-
 width:55px;
 height:55px;
-
 border-radius:50%;
-
 background:white;
-
 padding:5px;
-
 }
 
 .logo-box h1{
-
 font-size:18px;
 
 text-shadow:
 0 3px 10px rgba(0,0,0,.5);
-
 }
 
 /* CONTAINER */
@@ -100,18 +80,12 @@ text-shadow:
 padding:15px;
 }
 
-/* NAVIGATION */
+/* MENU */
 
 .top-menu{
-
 display:flex;
-
-justify-content:space-between;
-
 gap:10px;
-
 margin-bottom:20px;
-
 }
 
 .nav-btn{
@@ -132,11 +106,9 @@ rgba(255,255,255,.15);
 color:white;
 
 display:flex;
-
 flex-direction:column;
 
 align-items:center;
-
 justify-content:center;
 
 gap:5px;
@@ -146,7 +118,6 @@ transition:.4s;
 font-size:12px;
 
 backdrop-filter:blur(10px);
-
 }
 
 .nav-btn i{
@@ -168,7 +139,6 @@ scale(1.03);
 
 box-shadow:
 0 10px 25px rgba(0,0,0,.3);
-
 }
 
 /* CARD */
@@ -192,7 +162,6 @@ margin-bottom:20px;
 box-shadow:
 0 10px 30px rgba(0,0,0,.25),
 inset 0 1px 1px rgba(255,255,255,.2);
-
 }
 
 /* INPUT */
@@ -212,7 +181,6 @@ margin-top:10px;
 font-size:16px;
 
 outline:none;
-
 }
 
 /* BUTTON */
@@ -248,7 +216,6 @@ transition:.4s;
 
 box-shadow:
 0 8px 25px rgba(0,0,0,.3);
-
 }
 
 .main-btn:hover{
@@ -256,7 +223,6 @@ box-shadow:
 transform:
 translateY(-3px)
 scale(1.01);
-
 }
 
 /* STUDENT */
@@ -264,9 +230,7 @@ scale(1.01);
 .student{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 background:
@@ -277,7 +241,6 @@ padding:12px;
 border-radius:18px;
 
 margin-top:10px;
-
 }
 
 /* STATUS */
@@ -314,7 +277,6 @@ transition:.3s;
 position:relative;
 
 overflow:hidden;
-
 }
 
 .status-btn::before{
@@ -333,7 +295,6 @@ top:-100%;
 left:0;
 
 transition:.4s;
-
 }
 
 .status-btn:hover::before{
@@ -354,7 +315,6 @@ scale(1.15);
 
 box-shadow:
 0 0 20px rgba(0,255,100,.6);
-
 }
 
 /* SECTION */
@@ -384,7 +344,6 @@ border-radius:50%;
 background:#25D366;
 
 display:flex;
-
 align-items:center;
 justify-content:center;
 
@@ -398,7 +357,6 @@ box-shadow:
 0 5px 25px rgba(0,0,0,.4);
 
 z-index:999;
-
 }
 
 .wa-group{
@@ -416,7 +374,6 @@ border-radius:50%;
 background:#25D366;
 
 display:flex;
-
 align-items:center;
 justify-content:center;
 
@@ -430,7 +387,6 @@ box-shadow:
 0 5px 25px rgba(0,0,0,.4);
 
 z-index:999;
-
 }
 
 /* NOTIF */
@@ -465,29 +421,24 @@ box-shadow:
 
 animation:
 slideNotif .5s ease;
-
 }
 
 @keyframes slideNotif{
 
 from{
-
 opacity:0;
 
 transform:
 translateX(-50%)
 translateY(-20px);
-
 }
 
 to{
-
 opacity:1;
 
 transform:
 translateX(-50%)
 translateY(0);
-
 }
 
 }
@@ -506,17 +457,13 @@ border-radius:18px;
 margin-top:20px;
 
 line-height:1.8;
-
 }
 
 .small{
 
 font-size:13px;
-
 opacity:.8;
-
 margin-top:5px;
-
 }
 
 /* BIRTHDAY */
@@ -537,7 +484,6 @@ border-radius:20px;
 margin-bottom:15px;
 
 animation:pulse 1.5s infinite;
-
 }
 
 @keyframes pulse{
@@ -556,7 +502,7 @@ transform:scale(1);
 
 }
 
-/* CANVAS */
+/* CHART */
 
 canvas{
 
@@ -566,6 +512,7 @@ border-radius:15px;
 
 padding:10px;
 
+margin-top:10px;
 }
 
 /* COPY */
@@ -585,7 +532,6 @@ color:white;
 margin-top:10px;
 
 cursor:pointer;
-
 }
 
 </style>
@@ -657,9 +603,7 @@ class="section active">
 
 <div class="card">
 
-<h2>
-Presensi Harian
-</h2>
+<h2>Presensi Harian</h2>
 
 <select id="guru"></select>
 
@@ -668,11 +612,9 @@ id="pin"
 placeholder="PIN tetap guru">
 
 <div class="small">
-
 Buat PIN 4 digit huruf/angka
 yang selalu dipakai dan
 tidak boleh berubah
-
 </div>
 
 <select id="kelas"></select>
@@ -694,9 +636,7 @@ D = Dispensasi
 
 <div class="preview-box">
 
-<h3>
-Preview Presensi
-</h3>
+<h3>Preview Presensi</h3>
 
 <div id="previewPresensi">
 
@@ -720,6 +660,13 @@ Revisi Presensi
 
 </button>
 
+<button class="copy-btn"
+onclick="copyPreviewPresensi()">
+
+Copy Laporan Presensi
+
+</button>
+
 </div>
 
 </div>
@@ -731,9 +678,7 @@ class="section">
 
 <div class="card">
 
-<h2>
-Login Admin
-</h2>
+<h2>Login Admin</h2>
 
 <input id="username"
 placeholder="Username">
@@ -756,9 +701,7 @@ style="display:none;">
 
 <div class="card">
 
-<h3>
-Data Ketidakhadiran Hari Ini
-</h3>
+<h3>Data Ketidakhadiran Hari Ini</h3>
 
 <div id="laporan"></div>
 
@@ -780,9 +723,7 @@ Print PDF
 
 <div class="card">
 
-<h3>
-Kelas Belum Presensi
-</h3>
+<h3>Kelas Belum Presensi</h3>
 
 <div id="belum"></div>
 
@@ -797,11 +738,26 @@ Copy Data
 
 <div class="card">
 
-<h3>
-Grafik Presensi
-</h3>
+<h3>Grafik Harian</h3>
+<canvas id="grafikHarian"></canvas>
 
-<canvas id="grafik"></canvas>
+<h3>Grafik Mingguan</h3>
+<canvas id="grafikMingguan"></canvas>
+
+<h3>Grafik Bulanan</h3>
+<canvas id="grafikBulanan"></canvas>
+
+<h3>Grafik Semester</h3>
+<canvas id="grafikSemester"></canvas>
+
+<h3>Grafik Tahunan</h3>
+<canvas id="grafikTahunan"></canvas>
+
+<h3>Grafik 3 Tahunan</h3>
+<canvas id="grafik3Tahunan"></canvas>
+
+<h3>Grafik 10 Tahunan</h3>
+<canvas id="grafik10Tahunan"></canvas>
 
 </div>
 
@@ -816,9 +772,7 @@ class="section">
 
 <div class="card">
 
-<h2>
-Tambah Siswa
-</h2>
+<h2>Tambah Siswa</h2>
 
 <input id="no"
 placeholder="Nomor">
@@ -846,9 +800,7 @@ Simpan Siswa
 
 <div class="card">
 
-<h2>
-Tambah Guru
-</h2>
+<h2>Tambah Guru</h2>
 
 <input id="guruNama"
 placeholder="Nama Guru">
@@ -858,13 +810,8 @@ id="guruLahir">
 
 <select id="jk">
 
-<option>
-Laki-laki
-</option>
-
-<option>
-Perempuan
-</option>
+<option>Laki-laki</option>
+<option>Perempuan</option>
 
 </select>
 
@@ -901,6 +848,13 @@ href="https://wa.me/?text=Presensi%20Kehadiran%20SMKN%201%20Sanden">
 
 <script>
 
+/* GOOGLE SHEET */
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/ISI_WEBAPP_URL/exec";
+
+/* CONFIG */
+
 const CONFIG = {
 
 ADMIN:{
@@ -909,6 +863,8 @@ password:"admin"
 }
 
 };
+
+/* DATA */
 
 let siswa = [
 
@@ -1131,7 +1087,7 @@ document
 
 }
 
-/* SET STATUS */
+/* STATUS */
 
 function setStatus(event,index,status){
 
@@ -1147,6 +1103,38 @@ x=>x.kelas==kelas
 
 const selected =
 filtered[index];
+
+const parent =
+event.target.parentElement;
+
+const isActive =
+event.target.classList.contains(
+'status-active'
+);
+
+parent
+.querySelectorAll('.status-btn')
+.forEach(btn=>{
+
+btn.classList.remove('status-active');
+
+});
+
+if(isActive){
+
+presensi =
+presensi.filter(
+p=>p.nama!=selected.nama
+);
+
+updatePreview();
+
+return;
+
+}
+
+event.target
+.classList.add('status-active');
 
 const existing =
 presensi.find(
@@ -1168,20 +1156,6 @@ status
 });
 
 }
-
-const parent =
-event.target.parentElement;
-
-parent
-.querySelectorAll('.status-btn')
-.forEach(btn=>{
-
-btn.classList.remove('status-active');
-
-});
-
-event.target
-.classList.add('status-active');
 
 updatePreview();
 
@@ -1220,7 +1194,7 @@ document
 
 /* KIRIM */
 
-function kirimPresensi(){
+async function kirimPresensi(){
 
 let laporan =
 "Presensi Kehadiran SMKN 1 Sanden\n\n";
@@ -1237,9 +1211,46 @@ document
 .innerHTML =
 laporan.replace(/\n/g,'<br>');
 
+try{
+
+await fetch(WEB_APP_URL,{
+
+method:'POST',
+
+body:JSON.stringify({
+
+action:'presensi',
+
+tanggal:
+new Date(),
+
+guru:
+document
+.getElementById('guru')
+.value,
+
+kelas:
+document
+.getElementById('kelas')
+.value,
+
+data:presensi
+
+})
+
+});
+
 showNotif(
-"Presensi berhasil dikirim"
+"Presensi berhasil dikirim ke Google Sheet"
 );
+
+}catch(e){
+
+showNotif(
+"Gagal mengirim data"
+);
+
+}
 
 }
 
@@ -1349,42 +1360,141 @@ showNotif(
 
 }
 
+function copyPreviewPresensi(){
+
+navigator.clipboard.writeText(
+
+document
+.getElementById(
+'previewPresensi'
+)
+.innerText
+
+);
+
+showNotif(
+"Laporan presensi dicopy"
+);
+
+}
+
 /* GRAFIK */
 
 function loadGrafik(){
 
-const ctx =
-document
-.getElementById('grafik');
-
-new Chart(ctx,{
-
+new Chart(
+document.getElementById('grafikHarian'),
+{
 type:'bar',
-
 data:{
-
-labels:[
-'S',
-'I',
-'A',
-'D'
-],
-
+labels:['S','I','A','D'],
 datasets:[{
-
-label:'Jumlah',
-
-data:[
-5,
-2,
-1,
-3
-]
-
+label:'Harian',
+data:[5,2,1,3]
 }]
-
 }
+});
 
+new Chart(
+document.getElementById('grafikMingguan'),
+{
+type:'line',
+data:{
+labels:['Sen','Sel','Rab','Kam','Jum'],
+datasets:[{
+label:'Mingguan',
+data:[5,4,6,2,3],
+fill:false
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikBulanan'),
+{
+type:'line',
+data:{
+labels:['M1','M2','M3','M4'],
+datasets:[{
+label:'Bulanan',
+data:[12,9,7,10],
+fill:false
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikSemester'),
+{
+type:'pie',
+data:{
+labels:['S','I','A','D'],
+datasets:[{
+data:[20,15,8,3]
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikTahunan'),
+{
+type:'doughnut',
+data:{
+labels:['S','I','A','D'],
+datasets:[{
+data:[100,75,20,15]
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafik3Tahunan'),
+{
+type:'line',
+data:{
+labels:['2023','2024','2025'],
+datasets:[{
+label:'3 Tahun',
+data:[210,190,170],
+fill:false
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafik10Tahunan'),
+{
+type:'line',
+data:{
+labels:[
+'2016',
+'2017',
+'2018',
+'2019',
+'2020',
+'2021',
+'2022',
+'2023',
+'2024',
+'2025'
+],
+datasets:[{
+label:'10 Tahun',
+data:[
+120,
+115,
+110,
+130,
+90,
+100,
+105,
+98,
+87,
+95
+],
+fill:false
+}]
+}
 });
 
 }
