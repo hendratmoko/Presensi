@@ -1236,33 +1236,29 @@ document
 
 async function kirimPresensi(){
 
-let laporan =
-"Presensi Kehadiran SMKN 1 Sanden\n\n";
+if(presensi.length==0){
 
-presensi.forEach((p,i)=>{
+showNotif(
+"Belum ada data presensi"
+);
 
-laporan +=
-`${i+1}. ${p.nama} /${p.status}\n`;
+return;
 
-});
-
-document
-.getElementById('laporan')
-.innerHTML =
-laporan.replace(/\n/g,'<br>');
+}
 
 try{
 
+const response =
 await fetch(WEB_APP_URL,{
 
 method:'POST',
 
+headers:{
+'Content-Type':
+'application/json'
+},
+
 body:JSON.stringify({
-
-action:'presensi',
-
-tanggal:
-new Date(),
 
 guru:
 document
@@ -1280,20 +1276,35 @@ data:presensi
 
 });
 
+const result =
+await response.json();
+
+if(result.result=='success'){
+
 showNotif(
-"Presensi berhasil dikirim ke Google Sheet"
+"Presensi berhasil dikirim"
 );
 
-}catch(e){
+}else{
 
 showNotif(
-"Gagal mengirim data"
+"Gagal mengirim"
+);
+
+}
+
+}catch(err){
+
+console.log(err);
+
+showNotif(
+"Error koneksi"
 );
 
 }
 
 }
-
+  
 /* REVISI */
 
 function revisiPresensi(){
