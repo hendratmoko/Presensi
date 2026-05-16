@@ -3,8 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Presensi SMKN 1 Sanden</title>
 
@@ -23,7 +22,6 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-
 background:
 linear-gradient(
 180deg,
@@ -33,60 +31,43 @@ linear-gradient(
 );
 
 min-height:100vh;
-
 color:white;
-
 overflow-x:hidden;
-
 padding-bottom:120px;
 }
 
 /* HEADER */
 
 .header{
-
 position:relative;
-
 height:220px;
-
 overflow:hidden;
 }
 
 .wave{
-
 width:100%;
-
 height:220px;
-
 object-fit:cover;
 }
 
 .logo-box{
-
 position:absolute;
-
 top:20px;
 left:15px;
-
 display:flex;
 align-items:center;
 gap:10px;
 }
 
 .logo{
-
 width:55px;
 height:55px;
-
 border-radius:50%;
-
 background:white;
-
 padding:5px;
 }
 
 .logo-box h1{
-
 font-size:18px;
 
 text-shadow:
@@ -102,11 +83,8 @@ padding:15px;
 /* MENU */
 
 .top-menu{
-
 display:flex;
-
 gap:10px;
-
 margin-bottom:20px;
 }
 
@@ -128,11 +106,9 @@ rgba(255,255,255,.15);
 color:white;
 
 display:flex;
-
 flex-direction:column;
 
 align-items:center;
-
 justify-content:center;
 
 gap:5px;
@@ -249,14 +225,12 @@ translateY(-3px)
 scale(1.01);
 }
 
-/* SISWA */
+/* STUDENT */
 
 .student{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 background:
@@ -485,7 +459,14 @@ margin-top:20px;
 line-height:1.8;
 }
 
-/* ULTAH */
+.small{
+
+font-size:13px;
+opacity:.8;
+margin-top:5px;
+}
+
+/* BIRTHDAY */
 
 .birthday{
 
@@ -521,6 +502,19 @@ transform:scale(1);
 
 }
 
+/* CHART */
+
+canvas{
+
+background:white;
+
+border-radius:15px;
+
+padding:10px;
+
+margin-top:10px;
+}
+
 /* COPY */
 
 .copy-btn{
@@ -538,19 +532,6 @@ color:white;
 margin-top:10px;
 
 cursor:pointer;
-}
-
-/* CHART */
-
-canvas{
-
-background:white;
-
-border-radius:15px;
-
-padding:10px;
-
-margin-top:10px;
 }
 
 </style>
@@ -630,11 +611,17 @@ class="section active">
 id="pin"
 placeholder="PIN tetap guru">
 
+<div class="small">
+Buat PIN 4 digit huruf/angka
+yang selalu dipakai dan
+tidak boleh berubah
+</div>
+
 <select id="kelas"></select>
 
 <div id="siswaContainer"></div>
 
-<div style="margin-top:8px;">
+<div style="margin-top:15px;">
 
 <b>Keterangan:</b><br>
 
@@ -645,13 +632,15 @@ D = Dispensasi
 
 </div>
 
+<!-- PREVIEW -->
+
 <div class="preview-box">
 
 <h3>Preview Presensi</h3>
 
 <div id="previewPresensi">
 
-Belum ada data
+Belum ada data presensi
 
 </div>
 
@@ -674,7 +663,7 @@ Revisi Presensi
 <button class="copy-btn"
 onclick="copyPreviewPresensi()">
 
-Copy Laporan
+Copy Laporan Presensi
 
 </button>
 
@@ -712,14 +701,14 @@ style="display:none;">
 
 <div class="card">
 
-<h3>Data Ketidakhadiran</h3>
+<h3>Data Ketidakhadiran Hari Ini</h3>
 
 <div id="laporan"></div>
 
 <button class="copy-btn"
 onclick="copyLaporan()">
 
-Copy
+Copy Laporan
 
 </button>
 
@@ -734,9 +723,41 @@ Print PDF
 
 <div class="card">
 
-<h3>Grafik</h3>
+<h3>Kelas Belum Presensi</h3>
 
+<div id="belum"></div>
+
+<button class="copy-btn"
+onclick="copyBelum()">
+
+Copy Data
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Grafik Harian</h3>
 <canvas id="grafikHarian"></canvas>
+
+<h3>Grafik Mingguan</h3>
+<canvas id="grafikMingguan"></canvas>
+
+<h3>Grafik Bulanan</h3>
+<canvas id="grafikBulanan"></canvas>
+
+<h3>Grafik Semester</h3>
+<canvas id="grafikSemester"></canvas>
+
+<h3>Grafik Tahunan</h3>
+<canvas id="grafikTahunan"></canvas>
+
+<h3>Grafik 3 Tahunan</h3>
+<canvas id="grafik3Tahunan"></canvas>
+
+<h3>Grafik 10 Tahunan</h3>
+<canvas id="grafik10Tahunan"></canvas>
 
 </div>
 
@@ -771,7 +792,33 @@ id="lahir">
 <button class="main-btn"
 onclick="simpanSiswa()">
 
-Simpan
+Simpan Siswa
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Tambah Guru</h2>
+
+<input id="guruNama"
+placeholder="Nama Guru">
+
+<input type="date"
+id="guruLahir">
+
+<select id="jk">
+
+<option>Laki-laki</option>
+<option>Perempuan</option>
+
+</select>
+
+<button class="main-btn"
+onclick="simpanGuru()">
+
+Simpan Guru
 
 </button>
 
@@ -781,7 +828,7 @@ Simpan
 
 </div>
 
-<!-- WA -->
+<!-- WA ADMIN -->
 
 <a class="floating-wa"
 href="https://wa.me/628121543986">
@@ -790,8 +837,10 @@ href="https://wa.me/628121543986">
 
 </a>
 
+<!-- WA GROUP -->
+
 <a class="wa-group"
-href="https://wa.me/?text=Presensi%20SMKN1Sanden">
+href="https://wa.me/?text=Presensi%20Kehadiran%20SMKN%201%20Sanden">
 
 <i class="fab fa-whatsapp"></i>
 
@@ -799,16 +848,12 @@ href="https://wa.me/?text=Presensi%20SMKN1Sanden">
 
 <script>
 
-/* =========================================
-GOOGLE SHEET
-========================================= */
+/* GOOGLE SHEET */
 
 const WEB_APP_URL =
-"https://script.google.com/macros/s/AKfycbzya5lwIFRXKGxy41Di-jDpWqcXLpwEKpXj9rrIuY81BzfH15r0VkAO82dWORAZLiHd7Q/exec";
+"https://script.google.com/macros/s/ISI_WEBAPP_URL/exec";
 
-/* =========================================
-CONFIG
-========================================= */
+/* CONFIG */
 
 const CONFIG = {
 
@@ -819,11 +864,9 @@ password:"admin"
 
 };
 
-/* =========================================
-DATA SISWA
-========================================= */
+/* DATA */
 
-let siswa=[
+let siswa = [
 
 {
 no:1,
@@ -839,35 +882,45 @@ nama:"Desi",
 kelas:"XRPL1",
 nisn:"11112",
 lahir:"2004-12-01"
-}
-
-];
-
-/* =========================================
-DATA GURU
-========================================= */
-
-let guru=[
-
-{
-nama:"Hendratmoko"
 },
 
 {
-nama:"Kawit"
+no:3,
+nama:"Anwar Ismail",
+kelas:"XTKJ1",
+nisn:"11117",
+lahir:"2004-01-05"
+},
+
+{
+no:4,
+nama:"Ibrahim",
+kelas:"XTKJ1",
+nisn:"11118",
+lahir:"2003-12-01"
 }
 
 ];
 
-/* =========================================
-PRESENSI
-========================================= */
+let guru = [
+
+{
+nama:"Hendratmoko",
+lahir:"1975-11-29",
+jk:"L"
+},
+
+{
+nama:"Kawit",
+lahir:"1969-08-30",
+jk:"L"
+}
+
+];
 
 let presensi=[];
 
-/* =========================================
-SHOW PAGE
-========================================= */
+/* PAGE */
 
 function showPage(id,el){
 
@@ -895,9 +948,7 @@ el.classList.add('active-nav');
 
 }
 
-/* =========================================
-LOAD GURU
-========================================= */
+/* LOAD GURU */
 
 function loadGuru(){
 
@@ -919,9 +970,7 @@ document
 
 }
 
-/* =========================================
-LOAD KELAS
-========================================= */
+/* LOAD KELAS */
 
 function loadKelas(){
 
@@ -960,9 +1009,7 @@ showStudents
 
 }
 
-/* =========================================
-SHOW STUDENTS
-========================================= */
+/* SHOW STUDENT */
 
 function showStudents(){
 
@@ -992,28 +1039,32 @@ ${s.no}. ${s.nama}
 
 <div class="status-group">
 
-<button class="status-btn"
+<button
+class="status-btn"
 onclick="setStatus(event,${index},'S')">
 
 S
 
 </button>
 
-<button class="status-btn"
+<button
+class="status-btn"
 onclick="setStatus(event,${index},'I')">
 
 I
 
 </button>
 
-<button class="status-btn"
+<button
+class="status-btn"
 onclick="setStatus(event,${index},'A')">
 
 A
 
 </button>
 
-<button class="status-btn"
+<button
+class="status-btn"
 onclick="setStatus(event,${index},'D')">
 
 D
@@ -1036,9 +1087,7 @@ document
 
 }
 
-/* =========================================
-SET STATUS
-========================================= */
+/* STATUS */
 
 function setStatus(event,index,status){
 
@@ -1112,9 +1161,7 @@ updatePreview();
 
 }
 
-/* =========================================
-UPDATE PREVIEW
-========================================= */
+/* PREVIEW */
 
 function updatePreview(){
 
@@ -1130,7 +1177,7 @@ presensi.forEach((p,i)=>{
 
 html += `
 ${i+1}. ${p.nama}
- - ${p.status}<br>
+- ${p.status}<br>
 `;
 
 });
@@ -1145,89 +1192,9 @@ document
 
 }
 
-/* =========================================
-KIRIM PRESENSI
-========================================= */
+/* KIRIM */
 
 async function kirimPresensi(){
-
-if(presensi.length==0){
-
-showNotif(
-"Belum ada data presensi"
-);
-
-return;
-
-}
-
-try{
-
-const response =
-await fetch(WEB_APP_URL,{
-
-method:'POST',
-
-headers:{
-'Content-Type':
-'application/json'
-},
-
-body:JSON.stringify({
-
-tanggal:
-new Date(),
-
-guru:
-document
-.getElementById('guru').value,
-
-kelas:
-document
-.getElementById('kelas').value,
-
-data:presensi
-
-})
-
-});
-
-const result =
-await response.json();
-
-if(result.result=='success'){
-
-showNotif(
-"Presensi berhasil dikirim"
-);
-
-buatLaporan();
-
-}else{
-
-showNotif(
-"Gagal mengirim"
-);
-
-}
-
-}catch(err){
-
-console.log(err);
-
-showNotif(
-"Error koneksi"
-);
-
-}
-
-}
-
-/* =========================================
-LAPORAN
-========================================= */
-
-function buatLaporan(){
 
 let laporan =
 "Presensi Kehadiran SMKN 1 Sanden\n\n";
@@ -1244,23 +1211,60 @@ document
 .innerHTML =
 laporan.replace(/\n/g,'<br>');
 
-}
+try{
 
-/* =========================================
-REVISI
-========================================= */
+await fetch(WEB_APP_URL,{
 
-function revisiPresensi(){
+method:'POST',
+
+body:JSON.stringify({
+
+action:'presensi',
+
+tanggal:
+new Date(),
+
+guru:
+document
+.getElementById('guru')
+.value,
+
+kelas:
+document
+.getElementById('kelas')
+.value,
+
+data:presensi
+
+})
+
+});
 
 showNotif(
-"Revisi berhasil"
+"Presensi berhasil dikirim ke Google Sheet"
+);
+
+}catch(e){
+
+showNotif(
+"Gagal mengirim data"
 );
 
 }
 
-/* =========================================
-LOGIN ADMIN
-========================================= */
+}
+
+/* REVISI */
+
+function revisiPresensi(){
+
+showNotif(
+"Revisi berhasil dikirim"
+);
+
+}
+
+/* LOGIN */
 
 function loginAdmin(){
 
@@ -1290,8 +1294,10 @@ document
 
 loadGrafik();
 
+loadBelum();
+
 showNotif(
-"Login berhasil"
+"Login admin berhasil"
 );
 
 }else{
@@ -1304,9 +1310,23 @@ showNotif(
 
 }
 
-/* =========================================
-COPY
-========================================= */
+/* BELUM */
+
+function loadBelum(){
+
+document
+.getElementById('belum')
+.innerHTML =
+
+`
+1. XI RPL 1<br>
+2. XI TKJ 2<br>
+3. XII TKJ 1
+`;
+
+}
+
+/* COPY */
 
 function copyLaporan(){
 
@@ -1324,6 +1344,22 @@ showNotif(
 
 }
 
+function copyBelum(){
+
+navigator.clipboard.writeText(
+
+document
+.getElementById('belum')
+.innerText
+
+);
+
+showNotif(
+"Data dicopy"
+);
+
+}
+
 function copyPreviewPresensi(){
 
 navigator.clipboard.writeText(
@@ -1337,14 +1373,12 @@ document
 );
 
 showNotif(
-"Laporan dicopy"
+"Laporan presensi dicopy"
 );
 
 }
 
-/* =========================================
-GRAFIK
-========================================= */
+/* GRAFIK */
 
 function loadGrafik(){
 
@@ -1361,80 +1395,232 @@ data:[5,2,1,3]
 }
 });
 
+new Chart(
+document.getElementById('grafikMingguan'),
+{
+type:'line',
+data:{
+labels:['Sen','Sel','Rab','Kam','Jum'],
+datasets:[{
+label:'Mingguan',
+data:[5,4,6,2,3],
+fill:false
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikBulanan'),
+{
+type:'line',
+data:{
+labels:['M1','M2','M3','M4'],
+datasets:[{
+label:'Bulanan',
+data:[12,9,7,10],
+fill:false
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikSemester'),
+{
+type:'pie',
+data:{
+labels:['S','I','A','D'],
+datasets:[{
+data:[20,15,8,3]
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikTahunan'),
+{
+type:'doughnut',
+data:{
+labels:['S','I','A','D'],
+datasets:[{
+data:[100,75,20,15]
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafik3Tahunan'),
+{
+type:'line',
+data:{
+labels:['2023','2024','2025'],
+datasets:[{
+label:'3 Tahun',
+data:[210,190,170],
+fill:false
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafik10Tahunan'),
+{
+type:'line',
+data:{
+labels:[
+'2016',
+'2017',
+'2018',
+'2019',
+'2020',
+'2021',
+'2022',
+'2023',
+'2024',
+'2025'
+],
+datasets:[{
+label:'10 Tahun',
+data:[
+120,
+115,
+110,
+130,
+90,
+100,
+105,
+98,
+87,
+95
+],
+fill:false
+}]
+}
+});
+
 }
 
-/* =========================================
-SIMPAN SISWA
-========================================= */
+/* SIMPAN SISWA */
 
-async function simpanSiswa(){
+function simpanSiswa(){
 
-const dataSiswa = {
+siswa.push({
 
 no:
 document
-.getElementById('no').value,
+.getElementById('no')
+.value,
 
 nama:
 document
-.getElementById('nama').value,
+.getElementById('nama')
+.value,
 
 kelas:
 document
-.getElementById('kelasInput').value,
+.getElementById('kelasInput')
+.value,
 
 nisn:
 document
-.getElementById('nisn').value,
+.getElementById('nisn')
+.value,
 
 lahir:
 document
-.getElementById('lahir').value
-
-};
-
-siswa.push(dataSiswa);
-
-try{
-
-await fetch(WEB_APP_URL,{
-
-method:'POST',
-
-headers:{
-'Content-Type':
-'application/json'
-},
-
-body:JSON.stringify({
-
-action:'tambahSiswa',
-
-data:dataSiswa
-
-})
+.getElementById('lahir')
+.value
 
 });
 
 showNotif(
-"Siswa berhasil disimpan"
+"Siswa berhasil ditambahkan"
 );
-
-}catch(err){
-
-showNotif(
-"Gagal menyimpan"
-);
-
-}
 
 loadKelas();
 
 }
 
-/* =========================================
-NOTIF
-========================================= */
+/* SIMPAN GURU */
+
+function simpanGuru(){
+
+guru.push({
+
+nama:
+document
+.getElementById('guruNama')
+.value,
+
+lahir:
+document
+.getElementById('guruLahir')
+.value,
+
+jk:
+document
+.getElementById('jk')
+.value
+
+});
+
+showNotif(
+"Guru berhasil ditambahkan"
+);
+
+loadGuru();
+
+}
+
+/* ULANG TAHUN */
+
+function cekUltah(){
+
+const hariIni =
+new Date();
+
+const tanggal =
+hariIni.getDate();
+
+const bulan =
+hariIni.getMonth()+1;
+
+let html='';
+
+siswa.forEach(s=>{
+
+const lahir =
+new Date(s.lahir);
+
+if(
+lahir.getDate()==tanggal
+&&
+lahir.getMonth()+1==bulan
+){
+
+html += `
+
+<div class="birthday">
+
+🎉 Selamat ulang tahun
+${s.nama}
+
+</div>
+
+`;
+
+}
+
+});
+
+document
+.getElementById(
+'birthdayBox'
+)
+.innerHTML = html;
+
+}
+
+/* NOTIF */
 
 function showNotif(text){
 
@@ -1455,13 +1641,13 @@ div.remove();
 
 }
 
-/* =========================================
-INIT
-========================================= */
+/* INIT */
 
 loadGuru();
 
 loadKelas();
+
+cekUltah();
 
 </script>
 
