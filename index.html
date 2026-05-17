@@ -564,7 +564,6 @@ SMK NEGERI 1 SANDEN
 <div class="container">
 
 <!-- MENU -->
-
 <div class="top-menu">
 
 <button class="nav-btn active-nav"
@@ -577,25 +576,47 @@ onclick="showPage('presensi',this)">
 </button>
 
 <button class="nav-btn"
-onclick="showPage('admin',this)">
+onclick="showPage('dataPage',this)">
 
-<i class="fa-solid fa-user-shield"></i>
-
-<span>Admin</span>
-
-</button>
-
-<button class="nav-btn"
-onclick="showPage('data',this)">
-
-<i class="fa-solid fa-database"></i>
+<i class="fa-solid fa-chart-column"></i>
 
 <span>Data</span>
 
 </button>
 
-</div>
+<button class="nav-btn"
+onclick="showPage('admin',this)">
 
+<i class="fa-solid fa-user-shield"></i>
+
+<span id="adminText">
+Login Admin
+</span>
+
+</button>
+
+</div>
+  
+<!-- MENU AWAL
+<div class="top-menu">
+<button class="nav-btn active-nav"
+onclick="showPage('presensi',this)">
+<i class="fa-solid fa-clipboard-check"></i>
+<span>Presensi</span>
+</button>
+<button class="nav-btn"
+onclick="showPage('admin',this)">
+<i class="fa-solid fa-user-shield"></i>
+<span>Admin</span>
+</button>
+<button class="nav-btn"
+onclick="showPage('data',this)">
+<i class="fa-solid fa-database"></i>
+<span>Data</span>
+</button>
+</div>
+-->
+  
 <!-- PRESENSI -->
 
 <div id="presensi"
@@ -685,11 +706,11 @@ Copy Laporan Presensi
 </div>
 
 <!-- ADMIN -->
-
 <div id="admin"
 class="section">
 
-<div class="card">
+<div id="loginBox"
+class="card">
 
 <h2>Login Admin</h2>
 
@@ -709,6 +730,96 @@ Login
 
 </div>
 
+<div id="dashboard"
+style="display:none;">
+
+<div class="card">
+
+<h2>Admin Panel</h2>
+
+<button class="main-btn"
+onclick="logoutAdmin()">
+
+Logout
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Tambah Siswa</h3>
+
+<input id="no"
+placeholder="Nomor">
+
+<input id="nama"
+placeholder="Nama">
+
+<input id="kelasInput"
+placeholder="Kelas">
+
+<input id="nisn"
+placeholder="NISN">
+
+<input type="date"
+id="lahir">
+
+<button class="main-btn"
+onclick="simpanSiswa()">
+
+Tambah Siswa
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>Tambah Guru</h3>
+
+<input id="namaGuru"
+placeholder="Nama Guru">
+
+<input type="date"
+id="lahirGuru">
+
+<select id="jkGuru">
+
+<option value="L">
+Laki-laki
+</option>
+<option value="P">
+Perempuan
+</option>
+</select>
+<button class="main-btn"
+onclick="simpanGuru()">
+
+Tambah Guru
+
+</button>
+</div>
+</div>
+</div>
+  
+<!-- admin lama
+<div id="admin"
+class="section">
+<div class="card">
+<h2>Login Admin</h2>
+<input id="username"
+placeholder="Username">
+<input type="password"
+id="password"
+placeholder="Password">
+<button class="main-btn"
+onclick="loginAdmin()">
+Login
+</button>
+</div>
+-->
+  
 <div id="dashboard"
 style="display:none;">
 
@@ -777,11 +888,13 @@ Copy Data
 </div>
 
 </div>
-
+  
 <!-- DATA -->
-
-<div id="data"
+  
+<div id="dataPage"
 class="section">
+
+<!-- TAMBAH SISWA -->
 
 <div class="card">
 
@@ -811,6 +924,8 @@ Simpan Siswa
 
 </div>
 
+<!-- TAMBAH GURU -->
+
 <div class="card">
 
 <h2>Tambah Guru</h2>
@@ -837,9 +952,143 @@ Simpan Guru
 
 </div>
 
+<!-- DATA KETIDAKHADIRAN -->
+
+<div class="card">
+
+<h2>Ketidakhadiran Hari Ini</h2>
+
+<div id="laporanHariIni"></div>
+
+<button class="copy-btn"
+onclick="copyDataHarian()">
+
+Copy Laporan
+
+</button>
+
+</div>
+
+<!-- KELAS BELUM PRESENSI -->
+
+<div class="card">
+
+<h2>Kelas Belum Presensi</h2>
+
+<div id="kelasBelum"></div>
+
+<button class="copy-btn"
+onclick="copyBelum()">
+
+Copy
+
+</button>
+
+</div>
+
+<!-- GRAFIK -->
+
+<div class="card">
+
+<h2>Grafik Harian</h2>
+
+<canvas id="grafikHarian"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Grafik Mingguan</h2>
+
+<canvas id="grafikMingguan"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Grafik Bulanan</h2>
+
+<canvas id="grafikBulanan"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Grafik Semester</h2>
+
+<canvas id="grafikSemester"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Grafik 3 Tahun</h2>
+
+<canvas id="grafik3Tahun"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Grafik 10 Tahun</h2>
+
+<canvas id="grafik10Tahun"></canvas>
+
+</div>
+
+<!-- PRINT -->
+
+<div class="card">
+
+<button class="main-btn"
+onclick="window.print()">
+
+Print PDF
+
+</button>
+
 </div>
 
 </div>
+  
+<!-- DATA LAMA
+<div id="dataPage"
+class="section">
+<div class="card">
+<h2>Tambah Siswa</h2>
+<input id="no"
+placeholder="Nomor">
+<input id="nama"
+placeholder="Nama">
+<input id="kelasInput"
+placeholder="Kelas">
+<input id="nisn"
+placeholder="NISN">
+<input type="date"
+id="lahir">
+<button class="main-btn"
+onclick="simpanSiswa()">
+Simpan Siswa
+</button>
+</div>
+<div class="card">
+<h2>Tambah Guru</h2>
+<input id="guruNama"
+placeholder="Nama Guru">
+<input type="date"
+id="guruLahir">
+<select id="jk">
+<option>Laki-laki</option>
+<option>Perempuan</option>
+</select>
+<button class="main-btn"
+onclick="simpanGuru()">
+Simpan Guru
+</button>
+</div>
+</div>
+</div>
+-->
 
 <!-- WA ADMIN -->
 
@@ -939,7 +1188,88 @@ showNotif(
 }
 
 /* =========================
-LOAD GURU
+LOGIN LOGOUT ADMIN
+========================= */
+function loginAdmin(){
+
+const u =
+document
+.getElementById('username')
+.value;
+
+const p =
+document
+.getElementById('password')
+.value;
+
+if(
+u=="Miming"
+&&
+p=="admin"
+){
+
+document
+.getElementById(
+'loginBox'
+)
+.style.display='none';
+
+document
+.getElementById(
+'dashboard'
+)
+.style.display='block';
+
+document
+.getElementById(
+'adminText'
+)
+.innerHTML='Admin';
+
+showNotif(
+"Login berhasil"
+);
+
+loadDataRiil();
+
+}else{
+
+showNotif(
+"Login gagal"
+);
+
+}
+
+}
+
+function logoutAdmin(){
+
+document
+.getElementById(
+'loginBox'
+)
+.style.display='block';
+
+document
+.getElementById(
+'dashboard'
+)
+.style.display='none';
+
+document
+.getElementById(
+'adminText'
+)
+.innerHTML='Login Admin';
+
+showNotif(
+"Logout berhasil"
+);
+
+}
+
+/* =========================
+LOAD - TAMBAH GURU
 ========================= */
 
 function loadGuru(){
@@ -1013,7 +1343,70 @@ document
 .innerHTML = html;
 
 }
+  
+/* Tambah guru database */
+  
+async function simpanGuru(){
 
+const formData =
+new FormData();
+
+formData.append(
+
+'data',
+
+JSON.stringify({
+
+action:'tambahGuru',
+
+data:{
+
+nama:
+document
+.getElementById(
+'namaGuru'
+).value,
+
+lahir:
+document
+.getElementById(
+'lahirGuru'
+).value,
+
+jk:
+document
+.getElementById(
+'jkGuru'
+).value
+
+}
+
+})
+
+);
+
+await fetch(
+
+WEB_APP_URL,
+
+{
+
+method:'POST',
+
+mode:'no-cors',
+
+body:formData
+
+}
+
+);
+
+showNotif(
+"Guru berhasil ditambah"
+);
+
+}
+  
 /* LOAD KELAS */
 
 function loadKelas(){
@@ -1425,7 +1818,76 @@ showNotif(
 }
 
 }
+/* LOAD DATA RIIL */
+async function loadDataRiil(){
 
+try{
+
+const response =
+await fetch(WEB_APP_URL);
+
+const result =
+await response.json();
+
+buatGrafik();
+
+showNotif(
+"Data riil berhasil dimuat"
+);
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}
+
+/* GRAFIK RIIL */
+function buatGrafik(){
+
+new Chart(
+document.getElementById('grafikHarian'),
+{
+type:'bar',
+data:{
+labels:['S','I','A','D'],
+datasets:[{
+label:'Harian',
+data:[5,2,1,3]
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikMingguan'),
+{
+type:'line',
+data:{
+labels:['Sen','Sel','Rab','Kam','Jum'],
+datasets:[{
+label:'Mingguan',
+data:[5,8,2,6,4]
+}]
+}
+});
+
+new Chart(
+document.getElementById('grafikBulanan'),
+{
+type:'line',
+data:{
+labels:['Jan','Feb','Mar','Apr'],
+datasets:[{
+label:'Bulanan',
+data:[20,12,18,7]
+}]
+}
+});
+
+}
+
+  
 /* BELUM */
 
 function loadBelum(){
