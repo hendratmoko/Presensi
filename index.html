@@ -1126,77 +1126,37 @@ LOAD - TAMBAH GURU
 ========================= */
 
 function loadGuru(){
-
 let html='';
-
 guru.forEach(g=>{
-
 html += `
 <option>
 ${g.nama}
 </option>
 `;
-
 });
-
 document
 .getElementById('guru')
 .innerHTML = html;
-
   }
-  
 let presensi=[];
-
 /* PAGE */
-
 function showPage(id,el){
-
 document
 .querySelectorAll('.section')
 .forEach(x=>{
-
 x.classList.remove('active');
-
 });
-
 document
 .getElementById(id)
 .classList.add('active');
-
 document
 .querySelectorAll('.nav-btn')
 .forEach(btn=>{
-
 btn.classList.remove('active-nav');
-
 });
-
 el.classList.add('active-nav');
-
 }
 
-/* LOAD GURU */
-
-function loadGuru(){
-
-let html='';
-
-guru.forEach(g=>{
-
-html += `
-<option>
-${g.nama}
-</option>
-`;
-
-});
-
-document
-.getElementById('guru')
-.innerHTML = html;
-
-}
-  
 /* Tambah guru database */
   
 async function simpanGuru(){
