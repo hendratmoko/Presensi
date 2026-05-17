@@ -260,10 +260,68 @@ display:none;
 display:block;
 }
 
-/* WA */
-
+/* WhatsApp*/
+.wa-elegan{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:100%;
+padding:14px;
+margin-top:15px;
+border-radius:20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+font-size:15px;
+background:
+linear-gradient(
+135deg,
+  /*
+#25D366,
+#128C7E
+  */
+#00c853,
+#00e676,
+#1de9b6
+);
+box-shadow:
+0 10px 25px rgba(0,0,0,.3),
+inset 0 1px 1px rgba(255,255,255,.3);
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+/* ICON */
+.wa-elegan i{
+font-size:24px;
+}
+/* EFEK CAHAYA */
+.wa-elegan::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:80%;
+height:100%;
+background:
+rgba(255,255,255,.25);
+transform:skewX(-25deg);
+transition:.7s;
+}
+.wa-elegan:hover::before{
+left:130%;
+}
+/* HOVER */
+.wa-elegan:hover{
+transform:
+translateY(-3px)
+scale(1.02);
+box-shadow:
+0 15px 35px rgba(0,0,0,.35);
+}
+  
 .floating-wa{
-
 position:fixed;
 right:20px;
 bottom:20px;
@@ -938,17 +996,19 @@ Simpan Guru
 
 <!-- WA ADMIN -->
 
-<a class="floating-wa"
+<a class="wa-elegan"
 href="https://wa.me/628121543986">
 
 <i class="fab fa-whatsapp"></i>
+
+<span>WhatsApp Admin</span>
 
 </a>
 
 <!-- WA GROUP -->
 
 <a class="wa-group"
-href="https://wa.me/?text=Presensi%20Kehadiran%20SMKN%201%20Sanden">
+href="https://wa.me/?text=Presensi%20Kehadiran%20SMKN%201%20Sanden%20">
 
 <i class="fab fa-whatsapp"></i>
 
