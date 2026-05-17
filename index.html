@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <head>
 
 <meta charset="UTF-8">
@@ -797,29 +798,21 @@ Copy Data
 
 <h3>Grafik Harian</h3>
 <canvas id="grafikHarian"></canvas>
-
 <h3>Grafik Mingguan</h3>
 <canvas id="grafikMingguan"></canvas>
-
 <h3>Grafik Bulanan</h3>
 <canvas id="grafikBulanan"></canvas>
-
 <h3>Grafik Semester</h3>
 <canvas id="grafikSemester"></canvas>
-
 <h3>Grafik Tahunan</h3>
 <canvas id="grafikTahunan"></canvas>
-
 <h3>Grafik 3 Tahunan</h3>
 <canvas id="grafik3Tahunan"></canvas>
-
 <h3>Grafik 10 Tahunan</h3>
 <canvas id="grafik10Tahunan"></canvas>
 
 </div>
-
 </div>
-
 </div>
   
 <!-- DATA -->
@@ -847,60 +840,7 @@ Copy Preview
 </button>
 
 </div>
-<!-- TAMBAH SISWA 
-<div class="card">
-<h2>Tambah Siswa</h2>
-<input id="no"
-placeholder="Nomor">
-<input id="nama"
-placeholder="Nama">
-<input id="kelasInput"
-placeholder="Kelas">
-<input id="nisn"
-placeholder="NISN">
-<input type="date"
-id="lahir">
-<button class="main-btn"
-onclick="simpanSiswa()">
-Simpan Siswa
-</button>
-</div>
--->
-<!-- TAMBAH GURU 
-<div class="card">
-<h2>Tambah Guru</h2>
-<input id="guruNama"
-placeholder="Nama Guru">
-<input type="date"
-id="guruLahir">
-<select id="jk">
-<option>Laki-laki</option>
-<option>Perempuan</option>
-</select>
-<button class="main-btn"
-onclick="simpanGuru()">
-Simpan Guru
-</button>
-</div>
--->
-  
-<!-- DATA KETIDAKHADIRAN 
 
-<div class="card">
-
-<h2>Ketidakhadiran Hari Ini</h2>
-
-<div id="laporanHariIni"></div>
-
-<button class="copy-btn"
-onclick="copyDataHarian()">
-
-Copy Laporan
-
-</button>
-
-</div>
---->
   
 <!-- KELAS BELUM PRESENSI -->
 
@@ -922,130 +862,57 @@ Copy
 <!-- GRAFIK -->
 
 <div class="card">
-
 <h2>Grafik Harian</h2>
-
 <canvas id="grafikHarian"></canvas>
-
 </div>
-
 <div class="card">
-
 <h2>Grafik Mingguan</h2>
-
 <canvas id="grafikMingguan"></canvas>
-
 </div>
-
 <div class="card">
-
 <h2>Grafik Bulanan</h2>
-
 <canvas id="grafikBulanan"></canvas>
-
 </div>
-
 <div class="card">
-
 <h2>Grafik Semester</h2>
-
 <canvas id="grafikSemester"></canvas>
-
 </div>
-
 <div class="card">
-
 <h2>Grafik 3 Tahun</h2>
-
 <canvas id="grafik3Tahun"></canvas>
-
 </div>
-
 <div class="card">
-
 <h2>Grafik 10 Tahun</h2>
-
 <canvas id="grafik10Tahun"></canvas>
-
 </div>
 
 <!-- PRINT -->
 
 <div class="card">
-
 <button class="main-btn"
 onclick="window.print()">
-
 Print PDF
-
-</button>
-
-</div>
-
-</div>
-  
-<!-- DATA LAMA
-<div id="dataPage"
-class="section">
-<div class="card">
-<h2>Tambah Siswa</h2>
-<input id="no"
-placeholder="Nomor">
-<input id="nama"
-placeholder="Nama">
-<input id="kelasInput"
-placeholder="Kelas">
-<input id="nisn"
-placeholder="NISN">
-<input type="date"
-id="lahir">
-<button class="main-btn"
-onclick="simpanSiswa()">
-Simpan Siswa
-</button>
-</div>
-<div class="card">
-<h2>Tambah Guru</h2>
-<input id="guruNama"
-placeholder="Nama Guru">
-<input type="date"
-id="guruLahir">
-<select id="jk">
-<option>Laki-laki</option>
-<option>Perempuan</option>
-</select>
-<button class="main-btn"
-onclick="simpanGuru()">
-Simpan Guru
 </button>
 </div>
 </div>
-</div>
--->
 
 <!-- WA ADMIN -->
 
 <a class="wa-elegan"
 href="https://wa.me/628121543986">
-
 <i class="fab fa-whatsapp"></i>
-
 <span>WhatsApp Admin</span>
-
 </a>
 
 <!-- WA GROUP -->
 
 <a class="wa-group"
 href="https://wa.me/?text=Presensi%20Kehadiran%20SMKN%201%20Sanden%20">
-
 <i class="fab fa-whatsapp"></i>
-
 </a>
-
 <script>
 
-/* GOOGLE SHEET */
+/* GOOGLE DATA LYBRA */
 
 const WEB_APP_URL =
 "https://script.google.com/macros/s/AKfycbyfyySEKok0yLosiq34kVXzdIFmEQAiZASmEe0yrHGocMGfwY2bT57xLVNtlPhSkPaXlQ/exec";
@@ -1076,29 +943,12 @@ DATA ARRAY
 /* DATA */
 let siswa = [];
 let guru = [];
-/*
-let siswa = [
-{no:1,nama:"Anwar",kelas:"XRPL1",nisn:"11111",lahir:"2004-01-01"},
-{no:2,nama:"Desi",kelas:"XRPL1",nisn:"11112",lahir:"2004-12-01"},
-{no:3,nama:"Anwar Ismail",kelas:"XTKJ1",nisn:"11117",lahir:"2004-01-05"},
-{no:4,nama:"Ibrahim",kelas:"XTKJ1",nisn:"11118",lahir:"2003-12-01"}
-];
-let guru = [
-{nama:"Hendratmoko",lahir:"1975-11-29",jk:"L"},
-{nama:"Kawit",lahir:"1969-08-30",jk:"L"}
-];
-*/
-  
 async function loadData(){
-
 try{
-
 const response =
 await fetch(WEB_APP_URL);
-
 const result =
 await response.json();
-
 siswa = result.siswa;
 guru = result.guru;
 
@@ -1117,9 +967,7 @@ console.log(err);
 showNotif(
 "Gagal mengambil data"
 );
-
 }
-
 }
 
 /* =========================
@@ -1610,69 +1458,9 @@ buatLaporan();
 }catch(err){
 
 console.log(err);
-/*
-showNotif(
-"Error koneksi"
-);
-*/
-}
 
 }
-/* 
-async function kirimPresensi(){
-if(presensi.length==0){
-showNotif(
-"Belum ada data presensi"
-);
-return;
 }
-try{
-const response =
-await fetch(WEB_APP_URL,{
-method:'POST',
-headers:{
-'Content-Type':
-'application/json'
-},
-body:JSON.stringify({
-guru:
-document
-.getElementById('guru')
-.value,
-kelas:
-document
-.getElementById('kelas')
-.value,
-data:presensi
-})
-});
-const result =
-await response.json();
-if(result.result=='success'){
-showNotif(
-"Presensi berhasil dikirim"
-);
-}else{
-showNotif(
-"Gagal mengirim"
-);
-}
-}catch(err){
-console.log(err);
-showNotif(
-"Error koneksi"
-);
-}
-}
-  */
-/* REVISI
-
-function revisiPresensi(){
-showNotif(
-"Revisi berhasil dikirim"
-);
-}
-*/
   
 /* LOGIN */
 
@@ -1741,7 +1529,6 @@ showNotif(
 console.log(err);
 
 }
-
 }
 
 /* GRAFIK RIIL */
