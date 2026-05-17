@@ -538,44 +538,18 @@ Login Admin
 </button>
 
 </div>
-  
-<!-- MENU AWAL
-<div class="top-menu">
-<button class="nav-btn active-nav"
-onclick="showPage('presensi',this)">
-<i class="fa-solid fa-clipboard-check"></i>
-<span>Presensi</span>
-</button>
-<button class="nav-btn"
-onclick="showPage('admin',this)">
-<i class="fa-solid fa-user-shield"></i>
-<span>Admin</span>
-</button>
-<button class="nav-btn"
-onclick="showPage('data',this)">
-<i class="fa-solid fa-database"></i>
-<span>Data</span>
-</button>
-</div>
--->
-  
+
 <!-- PRESENSI -->
 
 <div id="presensi"
 class="section active">
-
 <div id="birthdayBox"></div>
-
 <div class="card">
-
 <h2>Presensi Harian</h2>
-
 <select id="guru"></select>
-
 <input type="password"
 id="pin"
 placeholder="PIN">
-
 <div style="
 font-size:6px;
 color:rgba(255,255,255,.75);
@@ -745,39 +719,10 @@ Tambah Guru
 </div>
 </div>
   
-<!-- admin lama
-<div id="admin"
-class="section">
-<div class="card">
-<h2>Login Admin</h2>
-<input id="username"
-placeholder="Username">
-<input type="password"
-id="password"
-placeholder="Password">
-<button class="main-btn"
-onclick="loginAdmin()">
-Login
-</button>
-</div>
--->
+
   
 <div id="dashboard"
 style="display:none;">
-<!-- DATA KETIDAKHADIRAN 
-<div class="card">
-<h3>Data Ketidakhadiran Hari Ini</h3>
-<div id="laporan"></div>
-<button class="copy-btn"
-onclick="copyLaporan()">
-Copy Laporan
-</button>
-<button class="copy-btn"
-onclick="window.print()">
-Print PDF
-</button>
-</div>
--->
   
 <div class="card">
 
@@ -1534,6 +1479,129 @@ console.log(err);
 /* GRAFIK RIIL */
 function buatGrafik(){
 
+/* ======================================
+HARIAN
+====================================== */
+
+const harian =
+document.getElementById(
+'grafikHarian'
+);
+
+if(harian){
+
+new Chart(harian,{
+
+type:'bar',
+
+data:{
+
+labels:['S','I','A','D'],
+
+datasets:[{
+
+label:'Harian',
+
+data:[5,2,1,3]
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false
+
+}
+
+});
+
+}
+
+/* ======================================
+MINGGUAN
+====================================== */
+
+const mingguan =
+document.getElementById(
+'grafikMingguan'
+);
+
+if(mingguan){
+
+new Chart(mingguan,{
+
+type:'line',
+
+data:{
+
+labels:[
+'Sen',
+'Sel',
+'Rab',
+'Kam',
+'Jum',
+'Sab'
+],
+
+datasets:[{
+
+label:'Mingguan',
+
+data:[5,7,3,8,4,2]
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false
+
+}
+
+});
+
+}
+
+/* ======================================
+BULANAN
+====================================== */
+
+const bulanan =
+document.getElementById(
+'grafikBulanan'
+);
+if(bulanan){
+new Chart(bulanan,{
+type:'line',
+data:{
+labels:[
+'Jan',
+'Feb',
+'Mar',
+'Apr',
+'Mei',
+'Jun'
+],
+datasets:[{
+label:'Bulanan',
+data:[20,15,18,11,9,13]
+}]
+},
+options:{
+responsive:true,
+maintainAspectRatio:false
+}
+});
+}
+}
+/*  
+function buatGrafik(){
 new Chart(
 document.getElementById('grafikHarian'),
 {
@@ -1546,7 +1614,6 @@ data:[5,2,1,3]
 }]
 }
 });
-
 new Chart(
 document.getElementById('grafikMingguan'),
 {
@@ -1559,7 +1626,6 @@ data:[5,8,2,6,4]
 }]
 }
 });
-
 new Chart(
 document.getElementById('grafikBulanan'),
 {
@@ -1572,9 +1638,8 @@ data:[20,12,18,7]
 }]
 }
 });
-
 }
-
+*/
   
 /* BELUM */
 
