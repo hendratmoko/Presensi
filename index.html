@@ -702,7 +702,7 @@ Tambah Guru
   
 
   
-<div id="dashboard"
+<div id="dashboardGrafik"
 style="display:none;">
   
 <div class="card">
@@ -733,7 +733,7 @@ Copy Data
 <h3>Grafik Tahunan</h3>
 <canvas id="grafikTahunan"></canvas>
 <h3>Grafik 3 Tahunan</h3>
-<canvas id="grafik3Tahunan"></canvas>
+<canvas id="grafik3Tahun"></canvas>
 <h3>Grafik 10 Tahunan</h3>
 <canvas id="grafik10Tahunan"></canvas>
 
@@ -1012,14 +1012,14 @@ document
 btn.classList.remove('active-nav');
 });
 el.classList.add('active-nav');
-}
+
 /* GRAFIK */
 if(id=="dataPage"){
 setTimeout(()=>{
 buatGrafik();
 },300);
 }
-  }
+}
   
 /* Tambah guru database */
   
@@ -1396,7 +1396,7 @@ console.log(err);
 }
 }
   
-/* LOGIN */
+/* LOGIN 
 
 function loginAdmin(){
 
@@ -1441,6 +1441,7 @@ showNotif(
 }
 
 }
+  */
 /* LOAD DATA RIIL */
 async function loadDataRiil(){
 
@@ -1878,7 +1879,7 @@ loadKelas();
 
 }
 
-/* SIMPAN GURU */
+/* SIMPAN GURU 
 
 function simpanGuru(){
 
@@ -1908,7 +1909,8 @@ showNotif(
 loadGuru();
 
 }
-
+*/
+  
 /* ULANG TAHUN */
 
 function cekUltah(){
