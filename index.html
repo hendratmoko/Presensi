@@ -323,7 +323,7 @@ box-shadow:
   
 .floating-wa{
 position:fixed;
-right:20px;
+right:px;
 bottom:20px;
 width:65px;
 height:65px;
@@ -342,10 +342,38 @@ z-index:999;
 
 .wa-group{
 position:fixed;
-left:20px;
+right:20px;
 bottom:20px;
 width:65px;
 height:65px;
+border-radius:50%;
+background:
+linear-gradient(
+45deg,
+#25D366,
+#128C7E
+);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:32px;
+text-decoration:none;
+box-shadow:
+0 10px 30px rgba(0,0,0,.35);
+transition:.4s;
+}
+.wa-circle:hover{
+transform:
+scale(1.1)
+rotate(8deg);
+}
+  /*
+position:fixed;
+left:20px;
+bottom:20px;
+width:30px;
+height:30px;
 border-radius:25%;
 background:#25D366;
 display:flex;
@@ -358,7 +386,8 @@ box-shadow:
 0 5px 25px rgba(0,0,0,.4);
 z-index:999;
 }
-
+*/
+  
 /* NOTIF */
 .notif{
 position:fixed;
