@@ -59,13 +59,110 @@ gap:10px;
 }
 
 .logo{
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+145deg,
+#fff8e1,
+#d7ccc8
+);
+
+padding:5px;
+
+object-fit:cover;
+
+box-shadow:
+0 8px 25px rgba(62,39,35,.45);
+
+animation:
+logoFloat 3s ease-in-out infinite,
+logoBrownGlow 2.5s ease-in-out infinite;
+
+transition:.4s;
+
+border:
+2px solid rgba(255,255,255,.25);
+
+}
+
+/* HOVER */
+
+.logo:hover{
+
+transform:
+scale(1.08)
+rotate(5deg);
+
+}
+
+/* MELAYANG */
+
+@keyframes logoFloat{
+
+0%{
+transform:
+translateY(0px);
+}
+
+50%{
+transform:
+translateY(-8px);
+}
+
+100%{
+transform:
+translateY(0px);
+}
+
+}
+
+/* GLOW COKLAT */
+
+@keyframes logoBrownGlow{
+
+0%{
+
+box-shadow:
+0 0 10px rgba(121,85,72,.25),
+0 0 20px rgba(141,110,99,.35),
+0 8px 25px rgba(62,39,35,.35);
+
+}
+
+50%{
+
+box-shadow:
+0 0 20px rgba(161,136,127,.5),
+0 0 40px rgba(188,170,164,.7),
+0 12px 30px rgba(62,39,35,.5);
+
+}
+
+100%{
+
+box-shadow:
+0 0 10px rgba(121,85,72,.25),
+0 0 20px rgba(141,110,99,.35),
+0 8px 25px rgba(62,39,35,.35);
+
+}
+
+}
+/*
+.logo{
 width:55px;
 height:55px;
 border-radius:50%;
 background:brown;
 padding:5px;
 }
-
+*/
+  
 .logo-box h1{
 font-size:18px;
 
