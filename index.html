@@ -629,6 +629,42 @@ margin-top:10px;
 cursor:pointer;
 }
 
+/* =========================
+ANIMASI PIN → KELAS
+========================= */
+
+#kelas,
+#siswaContainer{
+
+transition:.4s;
+
+animation:
+fadeSlide .4s ease;
+
+}
+
+@keyframes fadeSlide{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+  
 </style>
 </head>
 <body>
