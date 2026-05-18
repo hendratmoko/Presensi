@@ -687,9 +687,13 @@ class="section active">
 <div class="card">
 <h2>Presensi Harian</h2>
 <select id="guru"></select>
-<input type="password"
+  
+<input
+type="password"
 id="pin"
-placeholder="PIN">
+placeholder="PIN"
+oninput="cekPIN()">
+  
 <div style="
 font-size:6px;
 color:rgba(255,255,255,.75);
@@ -704,9 +708,13 @@ yang selalu dipakai dan
 tidak boleh berubah
 </div>
 
-<select id="kelas"></select>
+<select id="kelas"
+style="display:none;">
+</select>
 
-<div id="siswaContainer"></div>
+<div id="siswaContainer"
+style="display:none;">
+</div>
   
 <div style="
 margin-top:15px;
@@ -1147,6 +1155,42 @@ document
 showNotif(
 "Logout berhasil"
 );
+
+}
+
+/* =========================
+OTOMATIS KELUAR KELAS
+========================= */
+function cekPIN(){
+
+const pin =
+document
+.getElementById('pin')
+.value;
+
+/* JIKA PIN >= 4 */
+
+if(pin.length >= 4){
+
+document
+.getElementById('kelas')
+.style.display='block';
+
+document
+.getElementById('siswaContainer')
+.style.display='block';
+
+}else{
+
+document
+.getElementById('kelas')
+.style.display='none';
+
+document
+.getElementById('siswaContainer')
+.style.display='none';
+
+}
 
 }
 
