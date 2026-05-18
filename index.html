@@ -648,6 +648,18 @@ translateY(0);
 }
 
 }
+
+.kelas-kecil{
+
+font-size:11px;
+
+line-height:1.7;
+
+opacity:.9;
+
+padding:5px;
+
+}
   
 </style>
 </head>
@@ -1559,6 +1571,9 @@ document
 )
 .innerHTML = html
   ;
+/* UPDATE KELAS BELUM */
+
+loadBelum();
 }
 
 /* KIRIM */
@@ -1879,8 +1894,75 @@ data:[20,12,18,7]
 });
 }
 */
+/* KELAS BELUM PRESENSI*/
+function loadBelum(){
+
+/* =========================
+SEMUA KELAS
+========================= */
+
+const semuaKelas = [
+
+...new Set(
+siswa.map(x=>x.kelas)
+)
+
+];
+
+/* =========================
+KELAS SUDAH PRESENSI
+========================= */
+
+const kelasSudah = [
+
+...new Set(
+presensi.map(x=>x.kelas)
+)
+
+];
+
+/* =========================
+FILTER BELUM PRESENSI
+========================= */
+
+const belum = semuaKelas.filter(
+
+k=>!kelasSudah.includes(k)
+
+);
+
+/* =========================
+TAMPILKAN
+========================= */
+
+let html='';
+if(belum.length==0){
+html=`
+<div class="kelas-kecil">
+Semua kelas sudah presensi
+</div>
+`;
+}else{
+html=`
+<div class="kelas-kecil">
+<b>
+Kelas yang belum melakukan presensi:
+</b>
+<br><br>
+${belum.join(', ')}
+</div>
+`;
+}
+
+document
+.getElementById(
+'kelasBelum'
+)
+.innerHTML = html;
+
+}
   
-/* BELUM */
+/* BELUM 
 
 function loadBelum(){
 
@@ -1895,7 +1977,7 @@ document
 `;
 
 }
-
+*/
 /* COPY */
 
 function copyLaporan(){
