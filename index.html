@@ -1114,45 +1114,6 @@ Copy
 <h2>Grafik 10 Tahun</h2>
 <canvas id="grafik10Tahun"></canvas>
 </div>
-
-<!-- HELP BOX 
-
-<div id="helpBox"
-class="help-box">
-<div class="help-content">
-<h3>
-Panduan Penggunaan
-</h3>
-<div class="help-text">
-
-<b>1.</b> Pilih nama guru<br>
-
-<b>2.</b> Isi PIN pribadi<br>
-
-<b>3.</b> Pilih kelas<br>
-
-<b>4.</b> Tekan tombol:
-S / I / A / D<br>
-
-<b>5.</b> Pastikan preview presensi benar<br>
-
-<b>6.</b> Tekan
-"Kirim Presensi"<br>
-
-<b>7.</b> Gunakan tombol Copy bila ingin kirim laporan ke WhatsApp<br>
-
-<b>8.</b> Menu Data berisi grafik dan laporan<br>
-
-<b>9.</b> Login Admin untuk mengakses data tambahan<br>
-
-</div>
-<button class="close-help"
-onclick="toggleHelp()">
-Tutup
-</button>
-</div>
-</div>
--->
   
 <!-- PRINT -->
 <div class="card">
@@ -1792,52 +1753,7 @@ console.log(err);
 }
 }
   
-/* LOGIN 
 
-function loginAdmin(){
-
-const u =
-document
-.getElementById('username')
-.value;
-
-const p =
-document
-.getElementById('password')
-.value;
-
-if(
-u==
-CONFIG.ADMIN.username
-&&
-p==
-CONFIG.ADMIN.password
-){
-
-document
-.getElementById(
-'dashboard'
-)
-.style.display='block';
-
-loadGrafik();
-
-loadBelum();
-
-showNotif(
-"Login admin berhasil"
-);
-
-}else{
-
-showNotif(
-"Login gagal"
-);
-
-}
-
-}
-  */
 /* LOAD DATA RIIL */
 async function loadDataRiil(){
 
@@ -1864,48 +1780,96 @@ console.log(err);
 
 /* GRAFIK RIIL */
 function buatGrafik(){
-
+  
 /* ======================================
-HARIAN
+GRAFIK HARIAN RIIL
 ====================================== */
 
 const harian =
 document.getElementById(
 'grafikHarian'
 );
-
 if(harian){
-
+/* HITUNG DATA RIIL */
+const jumlahS =
+presensi.filter(
+x=>x.status=='S'
+).length;
+const jumlahI =
+presensi.filter(
+x=>x.status=='I'
+).length;
+const jumlahA =
+presensi.filter(
+x=>x.status=='A'
+).length;
+const jumlahD =
+presensi.filter(
+x=>x.status=='D'
+).length;
+/* HAPUS CHART LAMA */
+if(window.chartHarian){
+window.chartHarian.destroy();
+}
+/* BUAT CHART BARU */
+window.chartHarian =
 new Chart(harian,{
-
 type:'bar',
-
 data:{
-
-labels:['S','I','A','D'],
-
+labels:[
+'Sakit',
+'Izin',
+'Alpha',
+'Dispensasi'
+],
 datasets:[{
-
-label:'Harian',
-
-data:[5,2,1,3]
-
+label:'Ketidakhadiran Hari Ini',
+data:[
+jumlahS,
+jumlahI,
+jumlahA,
+jumlahD
+]
 }]
-
 },
-
 options:{
-
 responsive:true,
-
-maintainAspectRatio:false
-
+maintainAspectRatio:false,
+plugins:{
+legend:{
+display:true
 }
-
+}
+}
 });
-
 }
+  
+/* ======================================
+HARIAN
+====================================== 
 
+const harian =
+document.getElementById(
+'grafikHarian'
+);
+if(harian){
+new Chart(harian,{
+type:'bar',
+data:{
+labels:['S','I','A','D'],
+datasets:[{
+label:'Harian',
+data:[5,2,1,3]
+}]
+},
+options:{
+responsive:true,
+maintainAspectRatio:false
+}
+});
+}
+*/
+  
 /* ======================================
 MINGGUAN
 ====================================== */
