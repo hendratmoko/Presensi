@@ -1183,15 +1183,11 @@ guru = result.guru;
 loadGuru();
 loadKelas();
 cekUltah();
-
 showNotif(
 "Data berhasil dimuat"
 );
-
 }catch(err){
-
 console.log(err);
-
 showNotif(
 "Gagal mengambil data"
 );
@@ -1262,11 +1258,9 @@ loadDataRiil();
 }else{
 
 showNotif(
-"Login gagal"
+"Rekam IMEI sukses, Login gagal"
 );
-
 }
-
 }
 
 function logoutAdmin(){
@@ -2109,22 +2103,17 @@ showNotif(
 }
   
 function copyPreviewData(){
-
 navigator.clipboard.writeText(
-
 document
 .getElementById(
 'previewDataPage'
 )
 .innerText
-
 );
-
 showNotif(
 "Preview berhasil dicopy"
 );
-
-  }
+}
   
 function copyPreviewPresensi(){
 
@@ -2135,13 +2124,10 @@ document
 'previewPresensi'
 )
 .innerText
-
 );
-
 showNotif(
 "Laporan presensi dicopy"
 );
-
 }
 
 /* GRAFIK */
@@ -2373,11 +2359,8 @@ ${s.nama}
 (${s.kelas})
 
 </div>
-
 `;
-
 }
-
 });
 
 document
@@ -2391,22 +2374,14 @@ document
 /* NOTIF */
 
 function showNotif(text){
-
 const div =
 document.createElement('div');
-
 div.className='notif';
-
 div.innerHTML=text;
-
 document.body.appendChild(div);
-
 setTimeout(()=>{
-
 div.remove();
-
 },3000);
-
 }
 
 /* INIT */
