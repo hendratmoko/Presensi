@@ -14,7 +14,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
   
-/* body 756 */
+/* body 756 
+  end style 755*/
   
 *{
 margin:0;
@@ -243,12 +244,18 @@ inset 0 1px 1px rgba(255,255,255,.2);
 /* INPUT */
 input,select{
 width:100%;
-padding:15px;
+padding:12px;
 border:none;
 border-radius:15px;
 margin-top:10px;
-font-size:16px;
+font-size:13px;
 outline:none;
+background:
+rgba(255,255,255,.10);
+color:white;
+backdrop-filter:blur(8px);
+border:
+1px solid rgba(255,255,255,.15);
 }
 
 /* BUTTON */
@@ -498,7 +505,6 @@ transition:.4s;
 .link-btn i{
 font-size:18px;
 }
-
 /* HELP BUTTON */
 .help-btn{
 position:absolute;
@@ -713,34 +719,21 @@ ANIMASI PIN → KELAS
 
 #kelas,
 #siswaContainer{
-
 transition:.4s;
-
 animation:
 fadeSlide .4s ease;
-
 }
-
 @keyframes fadeSlide{
-
 from{
-
 opacity:0;
-
 transform:
 translateY(10px);
-
 }
-
 to{
-
 opacity:1;
-
 transform:
 translateY(0);
-
 }
-
 }
 
 .kelas-kecil{
@@ -751,7 +744,37 @@ border-radius:12px;
 background:
 rgba(255,255,255,.08);
 backdrop-filter:blur(8px);
-  }
+}
+  
+/* PILIHAN GURU */
+#guru{
+font-size:11px;
+padding:10px 12px;
+height:38px;
+border-radius:14px;
+background:
+rgba(255,255,255,.10);
+color:white;
+backdrop-filter:blur(8px);
+border:
+1px solid rgba(255,255,255,.15);
+box-shadow:
+0 4px 12px rgba(0,0,0,.15);
+transition:.3s;
+}
+/* SAAT DIKLIK */
+#guru:focus{
+background:
+rgba(255,255,255,.18);
+outline:none;
+transform:
+scale(1.01);
+}
+/* OPTION */
+#guru option{
+color:black;
+font-size:12px;
+}
   
 </style>
 </head>
