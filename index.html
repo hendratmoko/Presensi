@@ -494,22 +494,114 @@ transition:.4s;
 /* ICON */
 
 .link-btn i{
-
 font-size:18px;
+}
 
+/* HELP BUTTON */
+.help-btn{
+position:absolute;
+top:15px;
+right:15px;
+width:28px;
+height:28px;
+border:none;
+border-radius:50%;
+background:
+rgba(255,255,255,.18);
+backdrop-filter:blur(8px);
+color:white;
+font-size:13px;
+cursor:pointer;
+z-index:999;
+transition:.3s;
+box-shadow:
+0 4px 12px rgba(0,0,0,.2);
+}
+.help-btn:hover{
+transform:
+scale(1.1)
+rotate(10deg);
+}
+/* HELP BOX */
+.help-box{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+rgba(0,0,0,.45);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+padding:20px;
+}
+/* CONTENT */
+.help-content{
+width:100%;
+max-width:320px;
+background:
+linear-gradient(
+180deg,
+#5d4037,
+#8d6e63
+);
+padding:20px;
+border-radius:22px;
+box-shadow:
+0 15px 40px rgba(0,0,0,.4);
+animation:
+helpAnim .35s ease;
+}
+/* TITLE */
+.help-content h3{
+margin-bottom:15px;
+font-size:16px;
+text-align:center;
+}
+/* TEXT */
+.help-text{
+font-size:11px;
+line-height:1.8;
+opacity:.95;
+}
+/* CLOSE */
+.close-help{
+width:100%;
+margin-top:18px;
+padding:12px;
+border:none;
+border-radius:15px;
+background:white;
+color:#5d4037;
+font-weight:bold;
+cursor:pointer;
+}
+/* ANIMATION */
+@keyframes helpAnim{
+from{
+opacity:0;
+transform:
+scale(.9)
+translateY(20px);
+}
+to{
+opacity:1;
+transform:
+scale(1)
+translateY(0);
+}
 }
 
 /* HOVER */
 
 .link-btn:hover{
-
 transform:
 translateY(-3px)
 scale(1.02);
-
 box-shadow:
 0 12px 30px rgba(0,0,0,.4);
-
 }
   
 /* NOTIF */
@@ -669,6 +761,12 @@ backdrop-filter:blur(8px);
 <img class="wave"
 src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
 
+<!-- HELP BUTTON -->
+<button class="help-btn"
+onclick="toggleHelp()">
+<i class="fa-solid fa-circle-question"></i>
+</button>
+  
 <div class="logo-box">
 <img class="logo"
 src="IMG_20260518_125435_793.jpg">
@@ -689,18 +787,12 @@ onclick="showPage('presensi',this)">
 </button>
 <button class="nav-btn"
 onclick="showPage('dataPage',this)">
-
 <i class="fa-solid fa-chart-column"></i>
-
 <span>Data</span>
-
 </button>
-
 <button class="nav-btn"
 onclick="showPage('admin',this)">
-
 <i class="fa-solid fa-user-shield"></i>
-
 <span id="adminText">
 Login Admin
 </span>
@@ -763,17 +855,13 @@ S = Sakit | I = Izin | A = Alpha | D = Dispensasi
 <!-- PREVIEW -->
 
 <div class="preview-box">
-
 <h3>Preview Presensi</h3>
-
 <div id="previewPresensi">
-
+  
 Belum ada data presensi/NIHIL
 
 </div>
-
 </div>
-
 <button class="main-btn"
 onclick="kirimPresensi()">
 
@@ -794,39 +882,29 @@ onclick="copyPreviewPresensi()">
 Copy Laporan Presensi
 
 </button>
-
 </div>
-
 </div>
 
 <!-- ADMIN -->
 <div id="admin"
 class="section">
-
 <div id="loginBox"
 class="card">
-
 <h2>Login Admin</h2>
-
 <input id="username"
 placeholder="Username">
-
 <input type="password"
 id="password"
 placeholder="Password">
-
 <button class="main-btn"
 onclick="loginAdmin()">
 
 Login
 
 </button>
-
 </div>
-
 <div id="dashboard"
 style="display:none;">
-
 <div class="card">
 
 <h2>Admin Panel</h2>
@@ -843,54 +921,42 @@ Logout
 href="https://docs.google.com/spreadsheets/d/1A9zJC2ROfRCNz6FRONTM00xr3Ez-3V74H1S_-dcwtG8/edit?usp=drivesdk"
 target="_blank"
 class="link-btn">
-
 <i class="fa-solid fa-globe"></i>
 
 Rekapitulasi Data Lybra
 
 </a>
 </div>
-
 <div class="card">
 
 <h3>Tambah Siswa</h3>
 
 <input id="no"
 placeholder="Nomor">
-
 <input id="nama"
 placeholder="Nama">
-
 <input id="kelasInput"
 placeholder="Kelas">
-
 <input id="nisn"
 placeholder="NISN">
-
 <input type="date"
 id="lahir">
-
 <button class="main-btn"
 onclick="simpanSiswa()">
 
 Tambah Siswa
 
 </button>
-
 </div>
-
 <div class="card">
 
 <h3>Tambah Guru</h3>
 
 <input id="namaGuru"
 placeholder="Nama Guru">
-
 <input type="date"
 id="lahirGuru">
-
 <select id="jkGuru">
-
 <option value="L">
 Laki-laki
 </option>
@@ -907,25 +973,18 @@ Tambah Guru
 </div>
 </div>
 </div>
-  
 
-  
 <div id="dashboardGrafik"
 style="display:none;">
-  
 <div class="card">
-
-<h3>Kelas Belum Presensi</h3>
-
+<h3>Status Presensi</h3>
 <div id="belum"></div>
-
 <button class="copy-btn"
 onclick="copyBelum()">
 
 Copy Data
 
 </button>
-
 </div>
 <!--
 <div class="card">
@@ -956,14 +1015,10 @@ Copy Data
 href="https://smkn1sanden.sch.id"
 target="_blank"
 class="link-btn">
-
 <i class="fa-solid fa-globe"></i>
-
 SMKN 1 SANDEN .sch.id
-
 </a>
   -->
-
 <!-- DATA -->
   
 <div id="dataPage"
@@ -972,40 +1027,33 @@ class="section">
   <!-- PREVIEW PRESENSI -->
 
 <div class="card">
-
 <h2>Preview Presensi Hari Ini</h2>
-
 <div id="previewDataPage">
 
-Belum ada presensi
+Belum ada presensi/Nihil
 
 </div>
-
 <button class="copy-btn"
 onclick="copyPreviewData()">
 
 Copy Preview
 
 </button>
-
 </div>
 
-  
 <!-- KELAS BELUM PRESENSI -->
 
 <div class="card">
 
-<h2>Kelas Belum Presensi</h2>
+<h2>Kelas Belum Presensi/Nihil</h2>
 
 <div id="kelasBelum"></div>
-
 <button class="copy-btn"
 onclick="copyBelum()">
 
 Copy
 
 </button>
-
 </div>
 
 <!-- GRAFIK -->
@@ -1035,6 +1083,44 @@ Copy
 <canvas id="grafik10Tahun"></canvas>
 </div>
 
+<!-- HELP BOX -->
+
+<div id="helpBox"
+class="help-box">
+<div class="help-content">
+<h3>
+Panduan Penggunaan
+</h3>
+<div class="help-text">
+
+<b>1.</b> Pilih nama guru<br>
+
+<b>2.</b> Isi PIN pribadi<br>
+
+<b>3.</b> Pilih kelas<br>
+
+<b>4.</b> Tekan tombol:
+S / I / A / D<br>
+
+<b>5.</b> Pastikan preview presensi benar<br>
+
+<b>6.</b> Tekan
+"Kirim Presensi"<br>
+
+<b>7.</b> Gunakan tombol Copy bila ingin kirim laporan ke WhatsApp<br>
+
+<b>8.</b> Menu Data berisi grafik dan laporan<br>
+
+<b>9.</b> Login Admin untuk mengakses data tambahan<br>
+
+</div>
+<button class="close-help"
+onclick="toggleHelp()">
+Tutup
+</button>
+</div>
+</div>
+  
 <!-- PRINT -->
 
 <div class="card">
@@ -1118,7 +1204,23 @@ showNotif(
 );
 }
 }
-
+  
+/* =========================
+HELP
+========================= */
+  
+function toggleHelp(){
+const box =
+document.getElementById(
+'helpBox'
+);
+if(box.style.display=='flex'){
+box.style.display='none';
+}else{
+box.style.display='flex';
+}
+}
+  
 /* =========================
 LOGIN LOGOUT ADMIN
 ========================= */
