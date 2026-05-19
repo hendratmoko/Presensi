@@ -783,7 +783,92 @@ padding:6px;
 }
 }
 
-/* BUTTON KONTRIBUTOR */
+/* =========================
+BUTTON KONTRIBUTOR PREMIUM
+========================= */
+
+.kontributor-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:85%;
+margin:18px auto;
+padding:14px 18px;
+border:none;
+border-radius:22px;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+/* WARNA ELEGAN */
+background:
+linear-gradient(
+135deg,
+#6a1b9a,
+#8e24aa,
+#ad1457
+);
+color:white;
+font-size:14px;
+font-weight:700;
+letter-spacing:.5px;
+/* GLASS */
+backdrop-filter:blur(10px);
+border:
+1px solid rgba(255,255,255,.18);
+/* SHADOW */
+box-shadow:
+0 10px 30px rgba(0,0,0,.35),
+inset 0 1px 1px rgba(255,255,255,.25);
+transition:.4s ease;
+}
+/* ICON */
+.kontributor-btn i{
+font-size:16px;
+animation:
+loveGlow 2s infinite;
+}
+/* EFEK KILAU */
+.kontributor-btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:70%;
+height:100%;
+background:
+rgba(255,255,255,.22);
+transform:skewX(-25deg);
+transition:.8s;
+}
+/* HOVER */
+.kontributor-btn:hover{
+transform:
+translateY(-3px)
+scale(1.02);
+box-shadow:
+0 14px 35px rgba(0,0,0,.45);
+}
+.kontributor-btn:hover::before{
+left:140%;
+}
+/* ANIMASI ICON */
+@keyframes loveGlow{
+0%{
+transform:scale(1);
+opacity:1;
+}
+50%{
+transform:scale(1.18);
+opacity:.8;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+  
+/* BUTTON KONTRIBUTOR 2
 .kontributor-btn{
 width:100%;
 margin-top:12px;
@@ -808,7 +893,7 @@ box-shadow:
 transform:
 translateY(-2px);
 }
-/* POPUP */
+/* POPUP 
 .kontributor-box{
 position:fixed;
 top:0;
@@ -823,7 +908,7 @@ justify-content:center;
 padding:20px;
 z-index:99999;
 }
-/* CONTENT */
+/* CONTENT 
 .kontributor-content{
 width:100%;
 max-width:340px;
@@ -840,12 +925,12 @@ box-shadow:
 animation:
 popupKontributor .35s ease;
 }
-/* TITLE */
+/* TITLE 
 .kontributor-content h3{
 text-align:center;
 margin-bottom:14px;
 }
-/* TEXT */
+/* TEXT 
 .kontributor-text{
 font-size:12px;
 line-height:1.7;
@@ -853,7 +938,7 @@ margin-bottom:15px;
 opacity:.92;
 text-align:center;
 }
-/* DONASI BUTTON */
+/* DONASI BUTTON 
 .donasi-btn{
 display:flex;
 align-items:center;
@@ -880,7 +965,7 @@ rgba(255,255,255,.2);
 transform:
 translateY(-2px);
 }
-/* REKENING */
+/* REKENING 
 .rekening-box{
 margin-top:12px;
 padding:14px;
@@ -893,7 +978,7 @@ text-align:center;
 animation:
 fadeBank .3s ease;
 }
-/* TUTUP */
+/* TUTUP 
 .tutup-kontributor{
 width:100%;
 margin-top:18px;
@@ -905,7 +990,7 @@ color:#4e342e;
 font-weight:bold;
 cursor:pointer;
 }
-/* ANIMASI */
+/* ANIMASI 
 @keyframes popupKontributor{
 from{
 opacity:0;
@@ -932,7 +1017,7 @@ transform:
 translateY(0);
 }
 }
-  
+  */
 </style>
 </head>
 <!--
