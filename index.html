@@ -13,7 +13,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-
+  
+/* body 756 */
+  
 *{
 margin:0;
 padding:0;
@@ -753,6 +755,36 @@ backdrop-filter:blur(8px);
   
 </style>
 </head>
+
+<!-- HELP BOX -->
+<div id="helpBox"
+class="help-box">
+<div class="help-content">
+<h3>
+Panduan Penggunaan
+</h3>
+<div class="help-text">
+<b>1.</b> Pilih nama guru<br>
+<b>2.</b> Isi PIN pribadi<br>
+<b>3.</b> Pilih kelas<br>
+<b>4.</b> Tekan tombol:
+S / I / A / D (D: dispensasi dari sekolah, biasanya berupa penugasan khusus)<br>
+<b>5.</b> Pastikan preview presensi benar<br>
+<b>6.</b> Tekan
+"Kirim Presensi"<br>
+<b>7.</b> Gunakan tombol Copy bila ingin kirim laporan ke WhatsApp<br>
+<b>8.</b> Menu Data berisi grafik dan laporan<br>
+<b>9.</b> Login Admin untuk mengakses data tambahan<br>
+</div>
+<button class="close-help"
+onclick="toggleHelp()">
+
+Tutup
+
+</button>
+</div>
+</div>
+  
 <body>
 
 <!-- HEADER -->
@@ -1083,7 +1115,7 @@ Copy
 <canvas id="grafik10Tahun"></canvas>
 </div>
 
-<!-- HELP BOX -->
+<!-- HELP BOX 
 
 <div id="helpBox"
 class="help-box">
@@ -1120,9 +1152,9 @@ Tutup
 </button>
 </div>
 </div>
+-->
   
 <!-- PRINT -->
-
 <div class="card">
 <button class="main-btn"
 onclick="window.print()">
