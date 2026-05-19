@@ -1334,6 +1334,7 @@ href="https://wa.me/+628813924881">
 href="https://wa.me/+628121543986?text=Presensi%20Kehadiran%20SMKN%201%20Sanden%20">
 <i class="fab fa-whatsapp"></i>
 </a>
+  
 <script>
 
 /* GOOGLE DATA LYBRA */
@@ -2583,10 +2584,38 @@ setTimeout(()=>{
 div.remove();
 },3000);
 }
-
 /* INIT */
 loadData();
-
+  
+/* =========================
+POPUP KONTRIBUTOR
+========================= */
+function toggleKontributor(){
+const box =
+document.getElementById(
+'kontributorBox'
+);
+if(box.style.display=='flex'){
+box.style.display='none';
+}else{
+box.style.display='flex';
+}
+}
+/* =========================
+INFO BANK
+========================= */
+function toggleBank(){
+const bank =
+document.getElementById(
+'bankInfo'
+);
+if(bank.style.display=='block'){
+bank.style.display='none';
+}else{
+bank.style.display='block';
+}
+}
+  
 </script>
 
 <!-- POPUP KONTRIBUTOR -->
