@@ -746,20 +746,24 @@ rgba(255,255,255,.08);
 backdrop-filter:blur(8px);
 }
   
-/* PILIHAN GURU */
+/* PILIHAN DROPDOEN GURU */
 #guru{
 font-size:11px;
 padding:10px 12px;
 height:38px;
 border-radius:14px;
 background:
-rgba(255,255,255,.10);
+rgba(255,255,255,.08);
 color:white;
 backdrop-filter:blur(8px);
 border:
 1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+border-radius:16px;
+
 box-shadow:
-0 4px 12px rgba(0,0,0,.15);
+0 4px 12px rgba(0,0,0,.2);
 transition:.3s;
 }
 /* SAAT DIKLIK */
@@ -770,10 +774,18 @@ outline:none;
 transform:
 scale(1.01);
 }
-/* OPTION */
+#guru option{
+font-size:11px;
+background:
+rgba(20,20,20,.92);
+color:white;
+padding:6px;
+}
+/* OPTION 
 #guru option{
 color:black;
 font-size:12px;
+  */
 }
   
 </style>
@@ -788,13 +800,13 @@ Panduan Penggunaan
 </h3>
 <div class="help-text">
 <b>1.</b> Pilih nama guru<br>
-<b>2.</b> Isi PIN pribadi<br>
+<b>2.</b> Isi PIN pribadi 4 digit angka/huruf sebagai autentifikasi pengguna, usahakan sama setiap melakukan presensi.<br>
 <b>3.</b> Pilih kelas<br>
 <b>4.</b> Tekan tombol:
 S / I / A / D (D: dispensasi dari sekolah, biasanya berupa penugasan khusus)<br>
 <b>5.</b> Pastikan preview presensi benar<br>
 <b>6.</b> Tekan
-"Kirim Presensi"<br>
+"Kirim Presensi" untuk record database<br>
 <b>7.</b> Gunakan tombol Copy bila ingin kirim laporan ke WhatsApp<br>
 <b>8.</b> Menu Data berisi grafik dan laporan<br>
 <b>9.</b> Login Admin untuk mengakses data tambahan<br>
