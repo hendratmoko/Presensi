@@ -62,41 +62,29 @@ gap:10px;
 }
 
 .logo{
-
 width:60px;
 height:60px;
-
 border-radius:50%;
-
 background:
 linear-gradient(
 145deg,
 #fff8e1,
 #d7ccc8
 );
-
 padding:5px;
-
 object-fit:cover;
-
 box-shadow:
 0 8px 25px rgba(62,39,35,.45);
-
 animation:
 logoFloat 3s ease-in-out infinite,
 logoBrownGlow 2.5s ease-in-out infinite;
-
 transition:.4s;
-
 border:
 2px solid rgba(255,255,255,.25);
-
 }
 
 /* HOVER */
-
 .logo:hover{
-
 transform:
 scale(1.08)
 rotate(5deg);
@@ -789,7 +777,7 @@ padding:6px;
 BUTTON KONTRIBUTOR PREMIUM
 ========================= */
   
-/* BUTTON KONTRIBUTOR 2*/
+/* BUTTON KONTRIBUTOR 2
 .kontributor-btn{
 width:85%;
 margin-top:12px auto;
@@ -814,9 +802,9 @@ box-shadow:
 transform:
 translateY(-2px);
 }
-/* POPUP */
+/* POPUP 
 .kontributor-box{
-position:fixed; /* fixed*/
+position:fixed; /* fixed
 top:0;
 left:0;
 width:100%;
@@ -829,7 +817,7 @@ justify-content:center;
 padding:20px;
 z-index:99999;
 }
-/* CONTENT */
+/* CONTENT 
 .kontributor-content{
 width:100%;
 max-width:340px;
@@ -846,12 +834,12 @@ box-shadow:
 animation:
 popupKontributor .35s ease;
 }
-/* TITLE */
+/* TITLE 
 .kontributor-content h3{
 text-align:center;
 margin-bottom:14px;
 }
-/* TEXT */
+/* TEXT 
 .kontributor-text{
 font-size:12px;
 line-height:1.7;
@@ -859,6 +847,76 @@ margin-bottom:15px;
 opacity:.92;
 text-align:center;
 }
+*/
+
+/* =========================
+KONTRIBUTOR BUTTON ELEGAN 3
+========================= */
+
+.kontributor-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:70%;
+margin:18px auto;
+padding:13px 18px;
+border:none;
+border-radius:18px;
+background:
+rgba(255,255,255,.10);
+backdrop-filter:blur(12px);
+border:
+1px solid rgba(255,255,255,.18);
+color:white;
+font-size:13px;
+font-weight:600;
+letter-spacing:.5px;
+cursor:pointer;
+transition:.35s ease;
+box-shadow:
+0 8px 22px rgba(0,0,0,.22);
+position:relative;
+overflow:hidden;
+}
+/* ICON */
+.kontributor-btn i{
+font-size:15px;
+opacity:.95;
+}
+/* EFEK CAHAYA */
+.kontributor-btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:70%;
+height:100%;
+background:
+rgba(255,255,255,.18);
+transform:skewX(-25deg);
+transition:.7s;
+}
+/* HOVER */
+.kontributor-btn:hover{
+transform:
+translateY(-2px)
+scale(1.02);
+background:
+rgba(255,255,255,.16);
+box-shadow:
+0 12px 28px rgba(0,0,0,.30);
+}
+.kontributor-btn:hover::before{
+left:140%;
+}
+/* KLIK */
+.kontributor-btn:active{
+transform:
+scale(.98);
+  }
+
+  
 /* DONASI BUTTON */
 .donasi-btn{
 display:flex;
