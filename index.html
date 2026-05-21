@@ -1939,24 +1939,16 @@ updatePreview();
 /* PREVIEW */
 
 function updatePreview(){
-
 let html='';
-
 if(presensi.length==0){
-
 html='Belum ada data';
-
 }else{
-
 presensi.forEach((p,i)=>{
-
 html += `
 ${i+1}. ${p.nama}
 - ${p.status}<br>
 `;
-
 });
-
 }
 
 document
@@ -1964,20 +1956,65 @@ document
 'previewPresensi'
 )
 .innerHTML = html;
-/* DATA PAGE */
+/* DATA PAGE 1
 document
 .getElementById(
 'previewDataPage'
 )
 .innerHTML = html
-  ;
+;
+*/
+/* =========================
+AMBIL KELAS
+========================= */
+
+const kelas =
+document
+.getElementById('kelas')
+.value;
+
+/* =========================
+AMBIL TANGGAL
+========================= */
+
+const today =
+new Date();
+
+const tanggal =
+today.toLocaleDateString(
+'id-ID',
+{
+weekday:'long',
+day:'numeric',
+month:'long',
+year:'numeric'
+}
+);
+/* =========================
+UPDATE DATA PAGE
+========================= */
+document
+.getElementById(
+'previewKelas'
+)
+.innerText = kelas;
+document
+.getElementById(
+'previewTanggal'
+)
+.innerText = tanggal;
+document
+.getElementById(
+'previewIsi'
+)
+.innerHTML = html;
+
+
+  
 /* UPDATE KELAS BELUM */
-
 loadBelum();
-
 /* UPDATE GRAFIK */
 buatGrafik();
-
 }
 
 /* KIRIM */
