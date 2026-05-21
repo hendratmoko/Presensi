@@ -1150,6 +1150,7 @@ S = Sakit | I = Izin | A = Alpha | D = Dispensasi
 <h3>Preview Presensi</h3>
 
 <div id="previewDataPage">
+<!--
 <div style="
 font-size:13px;
 line-height:1.8;
@@ -1168,20 +1169,20 @@ margin:10px 0;
 border:
 1px solid rgba(255,255,255,.15);
 ">
-<!-- previewIsi"--->
+<!-- previewIsi"--
 <div id="previewIsi">
 Belum ada presensi/Nihil
 </div>
 </div>
 </div>
-<!--
+-->
 <div id="previewPresensi">
   
 Belum ada data presensi/NIHIL
 
 </div>
 </div>
--->
+
   
 <button class="main-btn"
 onclick="kirimPresensi()">
@@ -1365,15 +1366,45 @@ SMKN 1 SANDEN .sch.id
 <div id="dataPage"
 class="section">
 
-  <!-- PREVIEW PRESENSI -->
 
+  
+  <!-- PREVIEW PRESENSI -->
 <div class="card">
 <h2>Preview Presensi Hari Ini</h2>
+  
+<!-- 1 -->
 <div id="previewDataPage">
-
+<div style="
+font-size:13px;
+line-height:1.8;
+">
+<b>Kelas:</b>
+<span id="previewKelas">
+-
+</span>
+<br>
+<b>Tanggal:</b>
+<span id="previewTanggal">
+-
+</span>
+<hr style="
+margin:10px 0;
+border:
+1px solid rgba(255,255,255,.15);
+">
+<div id="previewIsi">
 Belum ada presensi/Nihil
-
 </div>
+</div>
+</div>
+
+  
+  <!-- asli 
+<div id="previewDataPage">
+Belum ada presensi/Nihil
+</div>
+-->
+  
 <button class="copy-btn"
 onclick="copyPreviewData()">
 
