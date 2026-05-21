@@ -100,61 +100,63 @@ border:
 transform:
 scale(1.08)
 rotate(5deg);
-
 }
+
+/*
+CSS
+
+*/
 
 /* MELAYANG */
 
 @keyframes logoFloat{
-
 0%{
 transform:
 translateY(0px);
 }
-
 50%{
 transform:
 translateY(-8px);
 }
-
 100%{
 transform:
 translateY(0px);
 }
-
 }
 
-/* GLOW COKLAT */
-
-@keyframes logoBrownGlow{
-
+/* QR ANIMASI HELP */
+@keyframes helpFloat{
 0%{
-
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-6px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+  
+/* GLOW COKLAT */
+@keyframes logoBrownGlow{
+0%{
 box-shadow:
 0 0 10px rgba(121,85,72,.25),
 0 0 20px rgba(141,110,99,.35),
 0 8px 25px rgba(62,39,35,.35);
-
 }
-
 50%{
-
 box-shadow:
 0 0 20px rgba(161,136,127,.5),
 0 0 40px rgba(188,170,164,.7),
 0 12px 30px rgba(62,39,35,.5);
-
 }
-
 100%{
-
 box-shadow:
 0 0 10px rgba(121,85,72,.25),
 0 0 20px rgba(141,110,99,.35),
 0 8px 25px rgba(62,39,35,.35);
-
 }
-
 }
 /*
 .logo{
@@ -966,11 +968,21 @@ S / I / A / D (D: dispensasi dari sekolah, biasanya berupa penugasan khusus)<br>
 <b>8.</b> Menu Data berisi grafik dan laporan<br>
 <b>9.</b> Login Admin untuk mengakses data tambahan<br>
 </div>
+<!-- GAMBAR HELP -->
+<div style="text-align:center; margin-top:15px;">
+<img
+src="LINK_GITHUB_GAMBAR_ANDA"
+style="
+width:120px;
+max-width:100%;
+border-radius:18px;
+box-shadow:0 6px 20px rgba(0,0,0,.35);
+animation:helpFloat 3s ease-in-out infinite;
+">
+</div>
 <button class="close-help"
 onclick="toggleHelp()">
-
 Tutup
-
 </button>
 </div>
 </div>
