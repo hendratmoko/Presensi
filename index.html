@@ -1465,7 +1465,7 @@ onclick="window.print()">
 Print PDF
 </button>
 </div>
-</div>
+
 
 <!-- WA ADMIN -->
 
@@ -1552,18 +1552,16 @@ box.style.display='none';
 }else{
 box.style.display='flex';
 }
-
+}
   
 /* =========================
 LOGIN LOGOUT ADMIN
 ========================= */
 function loginAdmin(){
-
 const u =
 document
 .getElementById('username')
 .value;
-
 const p =
 document
 .getElementById('password')
@@ -1634,36 +1632,26 @@ showNotif(
 OTOMATIS KELUAR KELAS
 ========================= */
 function cekPIN(){
-
 const pin =
 document
 .getElementById('pin')
 .value;
-
 /* JIKA PIN >= 4 */
-
-if(pin.length >= 4){
-
+if(pin.length >= 4
 document
 .getElementById('kelas')
 .style.display='block';
-
 document
 .getElementById('siswaContainer')
 .style.display='block';
-
 }else{
-
 document
 .getElementById('kelas')
 .style.display='none';
-
 document
 .getElementById('siswaContainer')
 .style.display='none';
-
 }
-
 }
 
 /* =========================
@@ -1684,7 +1672,6 @@ document
 .innerHTML = html;
   }
 let presensi=[];
-  
 /* PAGE */
 function showPage(id,el){
 document
