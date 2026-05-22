@@ -1314,6 +1314,7 @@ Tambah Guru
 </button>
 </div>
 </div>
+</div>
 
 <div id="dashboardGrafik"
 style="display:none;">
@@ -1567,69 +1568,65 @@ const p =
 document
 .getElementById('password')
 .value;
-
 if(
 u=="Miming"
 &&
 p=="admin"
 ){
-
 document
 .getElementById(
 'loginBox'
 )
 .style.display='none';
-
 document
 .getElementById(
 'dashboard'
 )
 .style.display='block';
-
 document
 .getElementById(
 'adminText'
 )
 .innerHTML='Admin';
-
 showNotif(
 "Login berhasil"
 );
-
 loadDataRiil();
-
 }else{
-
 showNotif(
 "Rekam IMEI sukses, Login gagal"
 );
 }
-}
+
 
 function logoutAdmin(){
-
+document.getElementById('loginBox').style.display='block';
+document.getElementById('dashboard').style.display='none';
+/* TAMBAHAN */
+document.getElementById('dashboardGrafik').style.display='none';
+document.getElementById('adminText').innerHTML='Login Admin';
+showNotif("Logout berhasil");
+}
+/*
+function logoutAdmin(){
 document
 .getElementById(
 'loginBox'
 )
 .style.display='block';
-
 document
 .getElementById(
 'dashboard'
 )
 .style.display='none';
-
 document
 .getElementById(
 'adminText'
 )
 .innerHTML='Login Admin';
-
 showNotif(
 "Logout berhasil"
 );
-
 }
 
 /* =========================
