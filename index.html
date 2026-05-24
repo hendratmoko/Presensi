@@ -723,6 +723,15 @@ transform:scale(1);
 }
 }
 
+.birthday.guru{
+background:
+linear-gradient(
+45deg,
+#8e24aa,
+#d81b60
+);
+}
+  
 /* CHART */
 canvas{
 background:white;
@@ -2610,9 +2619,8 @@ lahir.getDate()==tanggal &&
 lahir.getMonth()+1==bulan
 ){
 html += `
-<div class="birthday">
-🎉 Selamat Ulang Tahun
-Bp/Ibu ${g.nama}
+<div class="birthday guru">
+🎉 Selamat Ulang Tahun Bp/Ibu ${g.nama}
 </div>
 `;
 }
