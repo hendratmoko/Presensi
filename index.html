@@ -2657,69 +2657,26 @@ showNotif(
 loadKelas();
 
 }
-
-/* SIMPAN GURU 
-
-function simpanGuru(){
-
-guru.push({
-
-nama:
-document
-.getElementById('guruNama')
-.value,
-
-lahir:
-document
-.getElementById('guruLahir')
-.value,
-
-jk:
-document
-.getElementById('jk')
-.value
-
-});
-
-showNotif(
-"Guru berhasil ditambahkan"
-);
-
-loadGuru();
-
-}
-*/
   
 /* ULANG TAHUN */
-
 function cekUltah(){
-
 const hariIni =
 new Date();
-
 const tanggal =
 hariIni.getDate();
-
 const bulan =
 hariIni.getMonth()+1;
-
 let html='';
-
 siswa.forEach(s=>{
-
 const lahir =
 new Date(s.lahir);
-
 if(
 lahir.getDate()==tanggal
 &&
 lahir.getMonth()+1==bulan
 ){
-
 html += `
-
 <div class="birthday">
-
 🎉 Selamat ulang tahun
 ${s.nama}
 (${s.kelas})
@@ -2734,11 +2691,9 @@ document
 'birthdayBox'
 )
 .innerHTML = html;
-
 }
 
 /* NOTIF */
-
 function showNotif(text){
 const div =
 document.createElement('div');
@@ -2751,7 +2706,6 @@ div.remove();
 }
 /* INIT */
 loadData();
-  
 /* =========================
 POPUP KONTRIBUTOR
 ========================= */
@@ -2780,9 +2734,7 @@ bank.style.display='none';
 bank.style.display='block';
 }
 }
-  
 </script>
-
 <!-- POPUP KONTRIBUTOR -->
 <div id="kontributorBox"
 class="kontributor-box">
