@@ -2567,8 +2567,65 @@ showNotif(
 loadKelas();
 
 }
+
+/* ULANG TAHUN*/
+function cekUltah(){
+
+const hariIni = new Date();
+
+const tanggal = hariIni.getDate();
+const bulan = hariIni.getMonth()+1;
+
+let html='';
+
+/* =========================
+ULTAH SISWA
+========================= */
+
+siswa.forEach(s=>{
+
+const lahir = new Date(s.lahir);
+
+if(
+lahir.getDate()==tanggal &&
+lahir.getMonth()+1==bulan
+){
+
+html += `
+<div class="birthday">
+🎁 Happy Birthday 
+${s.nama}
+(${s.kelas})
+</div>
+`;
+}
+});
+/* =========================
+ULTAH GURU
+========================= */
+guru.forEach(g=>{
+const lahir = new Date(g.lahir);
+if(
+lahir.getDate()==tanggal &&
+lahir.getMonth()+1==bulan
+){
+html += `
+<div class="birthday">
+🎉 Selamat Ulang Tahun
+Bp/Ibu ${g.nama}
+</div>
+`;
+}
+});
+/* =========================
+TAMPILKAN
+========================= */
+document
+.getElementById('birthdayBox')
+.innerHTML = html;
+}
   
-/* ULANG TAHUN */
+/* ULANG TAHUN 
 function cekUltah(){
 const hariIni =
 new Date();
@@ -2602,6 +2659,7 @@ document
 )
 .innerHTML = html;
 }
+*/
 
 /* NOTIF */
 function showNotif(text){
