@@ -1050,14 +1050,14 @@ Panduan Penggunaan
 </h3>
 <div class="help-text">
 <b>1.</b> Pilih nama guru<br>
-<b>2.</b> Isi PIN pribadi 4 digit angka/huruf sebagai autentifikasi pengguna, usahakan sama setiap melakukan presensi.<br>
+<b>2.</b> Isi PIN pribadi 4 digit angka/huruf bebas, sebagai autentifikasi pengguna, usahakan sama setiap melakukan presensi.<br>
 <b>3.</b> Pilih kelas<br>
 <b>4.</b> Tekan tombol:
 S / I / A / D / T / B (D: dispensasi, T: terlambat, B: bolos)<br>
 <b>5.</b> Pastikan preview presensi benar<br>
 <b>6.</b> Tekan
 "Kirim Presensi" untuk record database<br>
-<b>7.</b> Gunakan tombol Copy bila ingin kirim laporan ke WhatsApp<br>
+<b>7.</b> Gunakan tombol Copy Laporan Presensi Singkat/Lengkap bila ingin kirim laporan ke WhatsApp<br>
 <b>8.</b> Menu Data berisi grafik dan laporan<br>
 <b>9.</b> Login Admin untuk mengakses data tambahan<br>
 <b>10.</b> Scan atau kirimkan ke Bp Ibu Guru yang lain alamat berikut: www.presensi.moidea.my.id<br>
@@ -1187,10 +1187,6 @@ S = Sakit | I = Izin | A = Alpha | D = Dispensasi | T = Terlambat | B = Bolos
 Belum ada data presensi.
 </div>
 </div>
-<button class="main-btn"
-onclick="kirimPresensi()">
-Kirim Presensi
-</button>
 <!-- copy-btn -->
 <button class="main-btn"
 onclick="copyLaporanLengkap()">
@@ -1199,6 +1195,10 @@ onclick="copyLaporanLengkap()">
 <button class="main-btn"
 onclick="copyLaporanSingkat()">
 📝 Copy Laporan Presensi Singkat
+</button>
+<button class="main-btn"
+onclick="kirimPresensi()">
+Kirim Presensi
 </button>
 </div>
 </div>
@@ -2521,7 +2521,7 @@ teks+=`${i+1}. ${p.nama} (${p.status})\n`;
 });
 teks+="\n";
 }
-teks+="🎉 Selamat kepada seluruh peserta didik.\n\n";
+teks+="🎉 Selamat kepada seluruh peserta didik yang hadir.\n";
 teks+="Semoga selalu sehat, semangat belajar, berkarakter baik,dan memperoleh prestasi terbaik.\n";
 navigator.clipboard.writeText(teks);
 showNotif("Laporan lengkap berhasil dicopy");
@@ -2530,7 +2530,7 @@ showNotif("Laporan lengkap berhasil dicopy");
 function copyLaporanSingkat(){
 let teks="";
 if(nihilMode){
-teks="NIHIL\nSemua siswa hadir.";
+teks="░▒▓█►─═  𝓝𝓲𝓱𝓲𝓵  ═─◄█▓▒░";
 }else if(presensi.length==0){
 teks="Belum ada data.";
 }else{
