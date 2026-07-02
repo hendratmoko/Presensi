@@ -1184,7 +1184,7 @@ S = Sakit | I = Izin | A = Alpha | D = Dispensasi | T = Terlambat | B = Bolos
 <h3>Preview Presensi</h3>
 <div id="previewDataPage">
 <div id="previewPresensi">
-Belum ada data presensi/NIHIL
+Belum ada data presensi.
 </div>
 </div>
 <button class="main-btn"
@@ -1193,8 +1193,12 @@ Kirim Presensi
 </button>
 <!-- copy-btn -->
 <button class="main-btn"
-onclick="copyPreviewPresensi()">
-Copy Laporan Presensi
+onclick="copyLaporanLengkap()">
+📋 Copy Laporan Presensi Lengkap
+</button>
+<button class="main-btn"
+onclick="copyLaporanSingkat()">
+📝 Copy Laporan Presensi Singkat
 </button>
 </div>
 </div>
@@ -1371,7 +1375,7 @@ border:
 1px solid rgba(255,255,255,.15);
 ">
 <div id="previewIsi">
-Belum ada presensi/Nihil
+Belum ada presensi.
 </div>
 </div>
 </div>
@@ -2473,53 +2477,60 @@ showNotif(
 );
 }
 
-function copyPreviewPresensi(){
-
-let teks="";
-
+function copyLaporanLengkap(){
 const guru=document.getElementById("guru").value;
 const kelas=document.getElementById("kelas").value;
-
 const tanggal=new Date().toLocaleDateString(
-"id-ID",
+'id-ID',
 {
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
+weekday:'long',
+day:'numeric',
+month:'long',
+year:'numeric'
 }
 );
 
+let teks="";
+teks+=`PRESENSI HARIAN\n`;
+teks+=`SMK NEGERI 1 SANDEN\n\n`;
+teks+=`Guru    : ${guru}\n`;
+teks+=`Kelas   : ${kelas}\n`;
+teks+=`Tanggal : ${tanggal}\n`;
+
+teks+="=====================================\n\n";
+
 if(nihilMode){
-
-teks=`
-
-📋 PRESENSI SMK NEGERI 1 SANDEN
-
-Guru : ${guru}
-Kelas : ${kelas}
-Tanggal : ${tanggal}
-==========================
-
-✅ NIHIL
-
-Seluruh peserta didik hadir.
-
-🎉 Selamat kepada seluruh peserta didik.
-Semoga tetap semangat belajar, selalu sehat, berkarakter baik, serta memperoleh prestasi terbaik.
-Terima kasih atas kedisiplinannya.
-`;
-
+teks+="✅ NIHIL\n\n";
+teks+="Seluruh peserta didik hadir.\n\n";
+}else if(presensi.length==0){
+teks+="Belum ada data presensi.\n\n";
 }else{
-teks=document
-.getElementById(
-'previewPresensi'
-)
-.innerText;
+teks+="Daftar siswa yang tidak hadir:\n\n";
+presensi.forEach((p,i)=>{
+teks+=`${i+1}. ${p.nama} (${p.status})\n`;
+});
+teks+="\n";
+}
+teks+="🎉 Selamat kepada seluruh peserta didik.\n\n";
+teks+="Semoga selalu sehat, semangat belajar, berkarakter baik,dan memperoleh prestasi terbaik.\n";
+navigator.clipboard.writeText(teks);
+showNotif("Laporan lengkap berhasil dicopy");
+}
+  
+function copyLaporanSingkat(){
+let teks="";
+if(nihilMode){
+teks="NIHIL\nSemua siswa hadir.";
+}else if(presensi.length==0){
+teks="Belum ada data.";
+}else{
+presensi.forEach((p,i)=>{
+teks+=`${i+1}. ${p.nama} - ${p.status}\n`;
+});
 }
 navigator.clipboard.writeText(teks);
-showNotif("Laporan berhasil dicopy");
-}
+showNotif("Laporan singkat berhasil dicopy");
+}  
 
 /* GRAFIK */
 
