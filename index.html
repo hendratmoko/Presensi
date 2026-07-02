@@ -1653,6 +1653,7 @@ document
 .innerHTML = html;
   }
 let presensi=[];
+let nihilMode=false;
 /* PAGE */
 function showPage(id,el){
 document
@@ -1853,7 +1854,26 @@ onclick="setStatus(event,${index},'B')">B</button>
 `;
 
 });
+html += `
+<div style="margin-top:20px">
 
+<button
+class="main-btn"
+style="
+background:linear-gradient(45deg,#00c853,#43a047);
+"
+onclick="setNihil()">
+
+✅ NIHIL (Hadir Semua)
+
+</button>
+
+</div>
+`;
+
+document
+.getElementById('siswaContainer')
+.innerHTML=html;
 document
 .getElementById(
 'siswaContainer'
@@ -1865,7 +1885,7 @@ document
 /* STATUS */
 
 function setStatus(event,index,status){
-
+nihilMode=false;
 const kelas =
 document
 .getElementById('kelas')
@@ -1935,13 +1955,64 @@ status
 updatePreview();
 
 }
+  
+function setNihil(){
 
+nihilMode=true;
+
+presensi=[];
+
+document
+.querySelectorAll(".status-btn")
+.forEach(btn=>{
+btn.classList.remove("status-active");
+});
+
+updatePreview();
+
+}
 /* PREVIEW */
 
 function updatePreview(){
 let html='';
-if(presensi.length==0){
-html='Belum ada data';
+
+if(nihilMode){
+
+html=`
+
+<div style="
+padding:15px;
+border-radius:15px;
+background:rgba(0,255,100,.12);
+">
+
+<h3>
+✅ NIHIL
+</h3>
+
+<br>
+
+Seluruh peserta didik hadir pada hari ini.
+
+<br><br>
+
+🎉 Selamat kepada seluruh peserta didik.
+
+<br><br>
+
+Semoga tetap sehat,
+semangat belajar,
+berakhlak mulia,
+serta memperoleh prestasi terbaik.
+
+</div>
+
+`;
+
+}else if(presensi.length==0){
+
+html="Belum ada data";
+
 }else{
 presensi.forEach((p,i)=>{
 html += `
@@ -2020,6 +2091,20 @@ buatGrafik();
 /* KIRIM */
 
 async function kirimPresensi(){
+if(nihilMode){
+
+presensi=[{
+
+nama:"NIHIL",
+
+kelas:
+document.getElementById("kelas").value,
+
+status:"H"
+
+}];
+
+}
 
 if(presensi.length==0){
 
@@ -2483,17 +2568,43 @@ showNotif(
   
 function copyPreviewPresensi(){
 
-navigator.clipboard.writeText(
+let teks="";
 
-document
+if(nihilMode){
+
+teks=`
+
+📋 PRESENSI SMKN 1 SANDEN
+
+========================
+
+✅ NIHIL
+
+Seluruh peserta didik hadir pada hari ini.
+
+🎉 Selamat kepada seluruh peserta didik.
+
+Semoga selalu sehat,
+semangat belajar,
+berkarakter baik,
+dan memperoleh prestasi terbaik.
+
+`;
+
+}else{
+
+teks=document
 .getElementById(
 'previewPresensi'
 )
-.innerText
-);
-showNotif(
-"Laporan presensi dicopy"
-);
+.innerText;
+
+}
+
+navigator.clipboard.writeText(teks);
+
+showNotif("Laporan berhasil dicopy");
+
 }
 
 /* GRAFIK */
