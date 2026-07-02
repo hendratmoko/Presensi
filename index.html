@@ -2510,23 +2510,11 @@ Terima kasih atas kedisiplinannya.
 `;
 
 }else{
-
-teks='
-📋 PRESENSI SMK NEGERI 1 SANDEN
-Guru : ${guru}
-Kelas : ${kelas}
-Tanggal : ${tanggal}
-========================== 
-
-${document.getElementById("previewPresensi").innerText}
-
-==========================
-Terima kasih atas perhatian dan kerja samanya.
-🌟 Semoga kegiatan belajar hari ini berjalan lancar,
-menyenangkan,
-serta menjadi amal ilmu yang bermanfaat.
-`
-;
+teks=document
+.getElementById(
+'previewPresensi'
+)
+innerText;
 }
 navigator.clipboard.writeText(teks);
 showNotif("Laporan berhasil dicopy");
