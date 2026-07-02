@@ -2489,14 +2489,24 @@ month:'long',
 year:'numeric'
 }
 );
-
+const sekarang = new Date();
+const jam = sekarang.toLocaleTimeString(
+'id-ID',
+{
+hour:'2-digit',
+minute:'2-digit',
+second:'2-digit'
+}
+);
+  
 let teks="";
 teks+=`PRESENSI HARIAN\n`;
 teks+=`SMK NEGERI 1 SANDEN\n\n`;
+teks+="=====================================\n\n";
 teks+=`Guru    : ${guru}\n`;
 teks+=`Kelas   : ${kelas}\n`;
 teks+=`Tanggal : ${tanggal}\n`;
-
+teks+=`Pukul   : ${jam} WIB\n`;
 teks+="=====================================\n\n";
 
 if(nihilMode){
