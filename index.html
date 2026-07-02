@@ -2611,62 +2611,25 @@ Terima kasih atas kedisiplinannya.
 }else{
 
 teks=`
-
 📋 PRESENSI SMK NEGERI 1 SANDEN
-
 Guru : ${guru}
-
 Kelas : ${kelas}
-
 Tanggal : ${tanggal}
-
 ==========================
 
 ${document.getElementById("previewPresensi").innerText}
 
 ==========================
-
 Terima kasih atas perhatian dan kerja samanya.
-
 🌟 Semoga kegiatan belajar hari ini berjalan lancar,
 menyenangkan,
 serta menjadi amal ilmu yang bermanfaat.
-
 `;
-
-}
-
-navigator.clipboard.writeText(teks);
-
-showNotif("Laporan berhasil dicopy");
-
-}
-  /*
-function copyPreviewPresensi(){
-let teks="";
-if(nihilMode){
-teks=`
-📋 PRESENSI SMKN 1 SANDEN
-========================
-✅ NIHIL
-Seluruh peserta didik hadir pada hari ini.
-🎉 Selamat kepada seluruh peserta didik.
-Semoga selalu sehat,
-semangat belajar,
-berkarakter baik,
-dan memperoleh prestasi terbaik.
-`;
-}else{
-teks=document
-.getElementById(
-'previewPresensi'
-)
-.innerText;
 }
 navigator.clipboard.writeText(teks);
 showNotif("Laporan berhasil dicopy");
 }
-*/
+
 /* GRAFIK */
 
 function loadGrafik(){
@@ -2785,50 +2748,38 @@ fill:false
 }]
 }
 });
-
 }
 
 /* SIMPAN SISWA */
 
 function simpanSiswa(){
-
 siswa.push({
-
 no:
 document
 .getElementById('no')
 .value,
-
 nama:
 document
 .getElementById('nama')
 .value,
-
 kelas:
 document
 .getElementById('kelasInput')
 .value,
-
 nisn:
 document
 .getElementById('nisn')
 .value,
-
 lahir:
 document
 .getElementById('lahir')
 .value
-
 });
-
 showNotif(
 "Siswa berhasil ditambahkan"
 );
-
 loadKelas();
-
 }
-
 /* ULANG TAHUN*/
 function cekUltah(){
 
@@ -2884,42 +2835,6 @@ document
 .getElementById('birthdayBox')
 .innerHTML = html;
 }
-  
-/* ULANG TAHUN 
-function cekUltah(){
-const hariIni =
-new Date();
-const tanggal =
-hariIni.getDate();
-const bulan =
-hariIni.getMonth()+1;
-let html='';
-siswa.forEach(s=>{
-const lahir =
-new Date(s.lahir);
-if(
-lahir.getDate()==tanggal
-&&
-lahir.getMonth()+1==bulan
-){
-html += `
-<div class="birthday">
-🎁 Happy Birthday
-${s.nama}
-(${s.kelas})
-
-</div>
-`;
-}
-});
-
-document
-.getElementById(
-'birthdayBox'
-)
-.innerHTML = html;
-}
-*/
 
 /* =========================
 JAM DIGITAL
