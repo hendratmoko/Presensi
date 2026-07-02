@@ -1999,12 +1999,8 @@ Seluruh peserta didik hadir pada hari ini.
 🎉 Selamat kepada seluruh peserta didik.
 
 <br><br>
-
-Semoga tetap sehat,
-semangat belajar,
-berakhlak mulia,
-serta memperoleh prestasi terbaik.
-
+Terima kasih atas kedisiplinan dan semangat belajar yang telah ditunjukkan.
+Semoga selalu diberikan kesehatan, kemudahan dalam memahami pelajaran, menjadi pribadi yang berakhlak mulia, serta meraih prestasi terbaik.
 </div>
 
 `;
@@ -2565,39 +2561,78 @@ showNotif(
 "Preview berhasil dicopy"
 );
 }
-  
+
 function copyPreviewPresensi(){
 
 let teks="";
+
+const guru=document.getElementById("guru").value;
+const kelas=document.getElementById("kelas").value;
+
+const tanggal=new Date().toLocaleDateString(
+"id-ID",
+{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+}
+);
 
 if(nihilMode){
 
 teks=`
 
-📋 PRESENSI SMKN 1 SANDEN
+📋 PRESENSI SMK NEGERI 1 SANDEN
 
-========================
+Guru : ${guru}
+
+Kelas : ${kelas}
+
+Tanggal : ${tanggal}
+
+==========================
 
 ✅ NIHIL
 
-Seluruh peserta didik hadir pada hari ini.
+Seluruh peserta didik hadir.
 
 🎉 Selamat kepada seluruh peserta didik.
 
-Semoga selalu sehat,
-semangat belajar,
+Semoga tetap semangat belajar,
+selalu sehat,
 berkarakter baik,
-dan memperoleh prestasi terbaik.
+serta memperoleh prestasi terbaik.
+
+Terima kasih atas kedisiplinannya.
 
 `;
 
 }else{
 
-teks=document
-.getElementById(
-'previewPresensi'
-)
-.innerText;
+teks=`
+
+📋 PRESENSI SMK NEGERI 1 SANDEN
+
+Guru : ${guru}
+
+Kelas : ${kelas}
+
+Tanggal : ${tanggal}
+
+==========================
+
+${document.getElementById("previewPresensi").innerText}
+
+==========================
+
+Terima kasih atas perhatian dan kerja samanya.
+
+🌟 Semoga kegiatan belajar hari ini berjalan lancar,
+menyenangkan,
+serta menjadi amal ilmu yang bermanfaat.
+
+`;
 
 }
 
@@ -2606,7 +2641,32 @@ navigator.clipboard.writeText(teks);
 showNotif("Laporan berhasil dicopy");
 
 }
-
+  /*
+function copyPreviewPresensi(){
+let teks="";
+if(nihilMode){
+teks=`
+📋 PRESENSI SMKN 1 SANDEN
+========================
+✅ NIHIL
+Seluruh peserta didik hadir pada hari ini.
+🎉 Selamat kepada seluruh peserta didik.
+Semoga selalu sehat,
+semangat belajar,
+berkarakter baik,
+dan memperoleh prestasi terbaik.
+`;
+}else{
+teks=document
+.getElementById(
+'previewPresensi'
+)
+.innerText;
+}
+navigator.clipboard.writeText(teks);
+showNotif("Laporan berhasil dicopy");
+}
+*/
 /* GRAFIK */
 
 function loadGrafik(){
