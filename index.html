@@ -2023,14 +2023,7 @@ document
 'previewPresensi'
 )
 .innerHTML = html;
-/* DATA PAGE 1
-document
-.getElementById(
-'previewDataPage'
-)
-.innerHTML = html
-;
-*/
+
 /* =========================
 AMBIL KELAS
 ========================= */
@@ -2284,36 +2277,6 @@ display:true
 }
 });
 }
-  
-/* ======================================
-HARIAN
-====================================== 
-
-const harian =
-document.getElementById(
-'grafikHarian'
-);
-if(harian){
-new Chart(harian,{
-type:'bar',
-data:{
-labels:['S','I','A','D'],
-datasets:[{
-label:'Harian',
-data:[5,2,1,3]
-}]
-},
-options:{
-responsive:true,
-maintainAspectRatio:false
-}
-});
-}
-*/
-  
-/* ======================================
-MINGGUAN
-====================================== */
 
 const mingguan =
 document.getElementById(
@@ -2547,22 +2510,23 @@ Terima kasih atas kedisiplinannya.
 `;
 
 }else{
-
+/*
 teks=`
 📋 PRESENSI SMK NEGERI 1 SANDEN
 Guru : ${guru}
 Kelas : ${kelas}
 Tanggal : ${tanggal}
 ==========================
-
+*/
 ${document.getElementById("previewPresensi").innerText}
-
+/*
 ==========================
 Terima kasih atas perhatian dan kerja samanya.
 🌟 Semoga kegiatan belajar hari ini berjalan lancar,
 menyenangkan,
 serta menjadi amal ilmu yang bermanfaat.
-`;
+` */
+;
 }
 navigator.clipboard.writeText(teks);
 showNotif("Laporan berhasil dicopy");
